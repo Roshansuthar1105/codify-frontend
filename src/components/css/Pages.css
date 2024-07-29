@@ -1,0 +1,11 @@
+.container {
+  max-width: 1440px;
+  min-height: calc(100dvh - 100px);
+  padding: 0 10px;
+  border-radius: 10px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: dodgerblue;
+}

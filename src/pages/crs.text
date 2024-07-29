@@ -1,0 +1,386 @@
+import React, { useEffect, useState } from "react";
+import "../components/css/Course.css";
+import { useAuth } from "../store/auth";
+import Card from "../components/Card";
+function Courses() {
+  const { coursesData } = useAuth();
+  const { loading } = useAuth();
+  const [heart, setheart] = useState(true);
+  const [fav, setFav] = useState([]);
+  const handleClick = (e) => {
+    // setheart(!heart);
+    const card = e.target.parentNode.parentNode;
+    // const course_id = e.target.dataset.id;
+    const course_index = e.target.dataset.index;
+    console.log(course_index);
+    // const res
+    if (fav.includes(course_index)) {
+      console.log("removed to fav", fav);
+      let index = fav.indexOf(course_index);
+      // console.log(index)
+      let temp = [...fav.slice(0, index), ...fav.slice(index + 1)];
+      setFav(temp);
+      // setheart(false);
+    } else {
+      setFav(fav.concat(course_index));
+      console.log("added to fav");
+      console.log(fav);
+    }
+  };
+  return (
+    <>
+      <div className="container" key={Math.floor(Math.random() * 10000)}>
+        fav items : {fav.length}
+        <br />
+        {fav.length > 0 &&
+          fav.map((curr, index) => {
+            const {
+              _id,
+              course_category,
+              course_title,
+              creator_name,
+              creator_youtube_link,
+              creator_image,
+              course_image,
+              description,
+            } = coursesData[curr];
+            return <>a</>;
+          })}
+      </div>
+      <div className="container">
+        {/* {loading ? "loading ":"done"} */}
+        {Array.isArray(coursesData) &&
+          coursesData.map((curr, ind) => {
+            return (
+              // <Card
+              //   _id={curr._id}
+              //   course_category={curr.course_category}
+              //   course_title={curr.course_title}
+              //   creator_name={curr.creator_name}
+              //   creator_youtube_link={curr.creator_youtube_link}
+              //   creator_image={curr.creator_image}
+              //   course_image={curr.course_image}
+              //   description={curr.description}
+              //   ind={curr.ind}
+              // />
+              <>
+              <div key={ind} >
+              <Card curr key={ind} />
+              </div>
+              </>
+            );
+          })}
+      </div>
+    </>
+  );
+}
+
+export default Courses;
+//method 2
+
+
+import React, { useEffect, useState } from "react";
+import "../components/css/Course.css";
+import { useAuth } from "../store/auth";
+function Courses() {
+  const { coursesData } = useAuth();
+  const { loading } = useAuth();
+  const [heart, setheart] = useState(true);
+  const [fav, setFav] = useState([]);
+  const handleClick = (e) => {
+    // setheart(!heart);
+    const card = e.target.parentNode.parentNode;
+    // const course_id = e.target.dataset.id;
+    const course_index = e.target.dataset.index;
+    console.log(course_index);
+    // const res
+    if (fav.includes(course_index)) {
+      console.log("removed to fav", fav);
+      let index = fav.indexOf(course_index);
+      // console.log(index)
+      let temp = [...fav.slice(0, index), ...fav.slice(index + 1)];
+      setFav(temp);
+      // setheart(false);
+    } else {
+      setFav(fav.concat(course_index));
+      console.log("added to fav");
+      console.log(fav);
+    }
+  };
+  return (
+    <>
+      <div className="container" key={Math.floor(Math.random() * 10000)}>
+        fav items : {fav.length}
+        <br />
+        {fav.length > 0 &&
+          fav.map((curr, index) => {
+            const {
+              _id,
+              course_category,
+              course_title,
+              creator_name,
+              creator_youtube_link,
+              creator_image,
+              course_image,
+              description,
+            } = coursesData[curr];
+            return (
+              <div className="card-body" key={curr}>
+                <div className="img-div">
+                  <img src={course_image} alt={course_title} />
+                </div>
+                <div className="creator-div">
+                  <img src={creator_image} alt={creator_name} />
+                  <div>
+                    <p>{course_title}</p>
+                    <h6>{creator_name}</h6>
+                  </div>
+                </div>
+                <div className="btn-cont">
+                  <a
+                    href={creator_youtube_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Watch now
+                  </a>
+                  <button
+                    className="btn"
+                    data-id={_id}
+                    data-index={curr}
+                    onClick={handleClick}
+                  >
+                    ❤️
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+      </div>
+      <div className="container">
+        {/* {loading ? "loading ":"done"} */}
+        {Array.isArray(coursesData) &&
+          coursesData.map((curr, index) => {
+            const {
+              _id,
+              course_category,
+              course_title,
+              creator_name,
+              creator_youtube_link,
+              creator_image,
+              course_image,
+              description,
+            } = curr;
+            return (
+              <div className="card-body" key={index}>
+                <div className="img-div">
+                  <img src={course_image} alt={course_title} />
+                </div>
+                <div className="creator-div">
+                  <img src={creator_image} alt={creator_name} />
+                  <div>
+                    <p>{course_title}</p>
+                    <h6>{creator_name}</h6>
+                  </div>
+                </div>
+                <div className="btn-cont">
+                  <a
+                    href={creator_youtube_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Watch now
+                  </a>
+                  <button
+                    className="btn"
+                    data-id={_id}
+                    data-index={index}
+                    onClick={handleClick}
+                  >
+                    {!fav.includes(index)?"added":"🖤"}
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+      </div>
+    </>
+  );
+}
+
+export default Courses;
+
+
+
+// method 3 
+import React, { useEffect, useState } from "react";
+import "../components/css/Course.css";
+import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
+function Courses() {
+  const { coursesData } = useAuth();
+  const { isLoggedIn } = useAuth();
+  const { loading } = useAuth();
+  const [heart, setheart] = useState(true);
+  const [fav, setFav] = useState([]);
+  const { userdata } = useAuth();
+  const [favdata, setFavdata] = useState({
+    userId: userdata._id,
+    course_id: [],
+  });
+  useEffect(() => {
+    if (isLoggedIn) {
+      fetchFavoriteData();
+    }
+  }, []);
+  const fetchFavoriteData = async () => {
+    try {
+      const response = await fetch(
+        "https://bitwise-backend-1.onrender.com/auth/v1/pages/courses/favorite",
+        {
+          method: "GET",
+        }
+      );
+      if (response.ok) {
+        const Data = await response.json();
+        setFavdata(Data);
+        console.log("data fetched", Data);
+      } else {
+        console.log("res is not ok ");
+      }
+    } catch (error) {
+      console.log(`fav page error form frontend ${error}`);
+    }
+  };
+
+  const postdata = () => {
+
+    const arr = fav.map((e)=>
+      coursesData[e]._id);
+    setFavdata({userId:userdata._id,course_id : arr})
+  console.log(favdata.userId , favdata.course_id)  
+  };
+  const handleClick = (e) => {
+    if (!isLoggedIn) {
+      toast.warn("Please login first");
+    } else {
+      const course_index = e.target.dataset.index;
+      if (fav.includes(course_index)) {
+        console.log("removed to fav", fav);
+        let index = fav.indexOf(course_index);
+        let temp = [...fav.slice(0, index), ...fav.slice(index + 1)];
+        setFav(temp);
+      } else {
+        setFav(fav.concat(course_index));
+        console.log("added to fav");
+        console.log(fav);
+      }
+      postdata();
+    }
+  };
+  return (
+    <>
+      <div className="container" key={Math.floor(Math.random() * 10000)}>
+        fav items : {fav.length}
+        <br />
+        {favdata.userId}
+        <br />
+        {Array.isArray(fav) &&
+          fav.map((curr, index) => {
+            const {
+              _id,
+              course_category,
+              course_title,
+              creator_name,
+              creator_youtube_link,
+              creator_image,
+              course_image,
+              description,
+            } = coursesData[curr];
+            return (
+              <div className="card-body" key={curr}>
+                <div className="img-div">
+                  <img src={course_image} alt={course_title} />
+                </div>
+                <div className="creator-div">
+                  <img src={creator_image} alt={creator_name} />
+                  <div>
+                    <p>{course_title}</p>
+                    <h6>{creator_name}</h6>
+                  </div>
+                </div>
+                <div className="btn-cont">
+                  <a
+                    href={creator_youtube_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Watch now
+                  </a>
+                  <button
+                    className="btn"
+                    data-id={_id}
+                    data-index={curr}
+                    onClick={handleClick}
+                  >
+                    ❤️
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+      </div>
+      <div className="container">
+        {/* {loading ? "loading ":"done"} */}
+        {Array.isArray(coursesData) &&
+          coursesData.map((curr, index) => {
+            const {
+              _id,
+              course_category,
+              course_title,
+              creator_name,
+              creator_youtube_link,
+              creator_image,
+              course_image,
+              description,
+            } = curr;
+            return (
+              <div className="card-body" key={index}>
+                <div className="img-div">
+                  <img src={course_image} alt={course_title} />
+                </div>
+                <div className="creator-div">
+                  <img src={creator_image} alt={creator_name} />
+                  <div>
+                    <p>{course_title}</p>
+                    <h6>{creator_name}</h6>
+                  </div>
+                </div>
+                <div className="btn-cont">
+                  <a
+                    href={creator_youtube_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Watch now
+                  </a>
+                  <button
+                    className="btn"
+                    data-id={_id}
+                    data-index={index}
+                    onClick={handleClick}
+                  >
+                    {!fav.includes(index) ? "added" : "🖤"}
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+      </div>
+    </>
+  );
+}
+
+export default Courses;
+
+
