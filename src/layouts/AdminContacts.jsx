@@ -42,15 +42,11 @@ function AdminContacts() {
 
   return (
     <div>
-      Contacts List :
-      <table>
-        <thead>
-          <td> Name</td>
-          <td> Email</td>
-          <td> Message</td>
-          <td> Delete</td>
-        </thead>
-        <tbody>
+      <table className="data-table" >
+          <th> Name</th>
+          <th> Email</th>
+          <th> Message</th>
+          <th> Delete</th>
         {contact.map((curr, ind) => {
               const { username,email,message,_id } = curr;
               return (
@@ -62,7 +58,6 @@ function AdminContacts() {
                   </tr>
               );
             })}
-        </tbody>
       </table>
     </div>
   );

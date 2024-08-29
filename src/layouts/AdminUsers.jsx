@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useAuth } from "../store/auth";
 import { Link } from "react-router-dom";
+import { MdOutlineEdit } from "react-icons/md";
+import { MdDeleteOutline } from "react-icons/md";
 function AdminUsers() {
   const { authorizationToken ,API} = useAuth();
   const [users, setUsers] = useState([]);
@@ -46,32 +48,34 @@ function AdminUsers() {
   };
   return (
     <>
-      <table>
-        <thead>
-          <td>name</td>
-          <td>email</td>
-          <td>phone</td>
-          <td>edit</td>
-          <td>delete</td>
-        </thead>
-        <tbody>
+      <table className="data-table">
+          <tr>
+          <th></th>
+          <th>name</th>
+          <th>email</th>
+          <th>phone</th>
+          <th>edit</th>
+          <th>delete</th>
+          </tr>
           {users.map((curr, ind) => {
             const { username, email, _id, phone } = curr;
             return (
-              <tr style={{ color: "white", backgroundColor: "#222" }} key={ind}>
+              <tr key={ind}>
+                <td>{ind + 1}</td>
                 <td>{username}</td>
                 <td>{email}</td>
                 <td>{phone}</td>
                 <td>
-                  <button> <Link to={`/admin/users/${_id}/edit`}> edit </Link> </button>
+                  <button>
+                  <Link to={`/admin/users/${_id}/edit`}><MdOutlineEdit /> edit </Link>
+                  </button>
                 </td>
                 <td>
-                  <button onClick={() => handleDelete(_id)}>delete</button>
+                  <button onClick={() => handleDelete(_id)}><MdDeleteOutline /> delete</button>
                 </td>
               </tr>
             );
           })}
-        </tbody>
       </table>
     </>
   );

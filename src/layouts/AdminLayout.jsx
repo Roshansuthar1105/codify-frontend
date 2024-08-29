@@ -2,6 +2,8 @@ import React from "react";
 import { Navigate, Outlet } from "react-router";
 import { NavLink } from "react-router-dom";
 import { FaUser, FaHome } from "react-icons/fa";
+import { MdFeedback } from "react-icons/md";
+import { BiSolidBook } from "react-icons/bi";
 import {useAuth} from "../store/auth"
 import { toast } from "react-toastify";
 function AdminLayout() {
@@ -12,29 +14,31 @@ function AdminLayout() {
   }
   return ( 
     <>
-      <nav>
-        <ol>
+    <div className="admin-cont container" >
+      <div className="left" >
+        <ul className="admin-nav">
           <li>
             <NavLink to="/admin/users">
-              {" "}
-              <FaUser /> users{" "}
+              <FaUser /> <span>users</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to="/admin/contacts"> contacts </NavLink>
+            <NavLink to="/admin/contacts"><MdFeedback /> <span>contacts</span></NavLink>
           </li>
           <li>
-            <NavLink to="/admin/courses"> courses </NavLink>
+            <NavLink to="/admin/courses"><BiSolidBook /><span>courses</span> </NavLink>
           </li>
           <li>
             <NavLink to="/">
-              {" "}
-              <FaHome /> home{" "}
+              <FaHome /> <span>home</span>
             </NavLink>
           </li>
-        </ol>
-      </nav>
+        </ul>
+      </div>
+      <div className="right">
       <Outlet />
+      </div>
+    </div>
     </>
   );
 }

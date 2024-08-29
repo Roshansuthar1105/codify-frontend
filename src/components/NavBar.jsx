@@ -1,37 +1,50 @@
 import React from "react";
-import "./css/Navbar.css";
+import "../App.css";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import { RiCloseLargeLine , RiMenu3Fill } from "react-icons/ri";
 function NavBar() {
   const { isLoggedIn } = useAuth();
-  // const { userdata } = useAuth();
+  const { userdata } = useAuth();
+  function resp() {
+    if(window.innerWidth>1400){
+      document.querySelector(".open").style.display="none";
+      document.getElementById("nav").classList.remove("side-nav");
+    }else{
+      document.querySelector(".open").style.display="flex";
+      document.getElementById("nav").classList.add("side-nav");
+    }
+  }
+  window.addEventListener("resize",()=>{
+    resp();
+  })
+  const handleClose = ()=>{
+    document.getElementById("nav").classList.toggle('show');
+  }
   return (
-    <header>
-      <nav>
-        <h3>User Registration </h3>
-        <ul>
+      <nav >
+        <h3 className="logo" >Bitwise Learning</h3>
+        <span className="open" onClick={handleClose} ><RiMenu3Fill /> </span>
+        <ul id="nav" >
+        <li>
+            <span className="close" onClick={handleClose} ><RiCloseLargeLine /> </span>
+          </li>
           <li>
-            <NavLink className="link" to="/">
-              {" "}
-              Home{" "}
-            </NavLink>
+            <NavLink className="link" to="/">Home</NavLink>
           </li>
           <li>
             <NavLink className="link" to="/about">
-              {" "}
-              About{" "}
+              About
             </NavLink>
           </li>
           <li>
             <NavLink className="link" to="/courses">
-              {" "}
-              Courses{" "}
+              Courses
             </NavLink>
           </li>
           <li>
             <NavLink className="link" to="/contact">
-              {" "}
-              Contact Us{" "}
+              Contact Us
             </NavLink>
           </li>
           {isLoggedIn ? (
@@ -41,13 +54,13 @@ function NavBar() {
                   Logout
                 </NavLink>
               </li>
-              {/* {userdata.isAdmin &&  (
+              {userdata.isAdmin &&  (
                 <li>
                   <NavLink className="link" to="/admin">
                     Admin Pannel
                   </NavLink>
                 </li>
-              )} */}
+              )}
             </>
           ) : (
             <>
@@ -65,7 +78,6 @@ function NavBar() {
           )}
         </ul>
       </nav>
-    </header>
   );
 }
 

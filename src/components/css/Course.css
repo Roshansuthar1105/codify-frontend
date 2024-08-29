@@ -1,11 +1,10 @@
-*{
+/* *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 .container{
     display: flex;
-    /* padding: 30px; */
     align-items: start;
     justify-content: start;
     flex-wrap: wrap;
@@ -23,14 +22,9 @@
     flex-direction: column;
     justify-content: space-between;
 }
-/* .card-body:hover .img-div {
-    position: absolute;
-    top: -100px;
-} */
 .img-div{
     margin: 5px;
     overflow: hidden;
-    /* border: 2px solid black; */
     border-radius: 5px;
 }
 .img-div img{
@@ -45,7 +39,6 @@
 }
 .creator-div{
     gap: 10px;
-    /* width: 300px; */
     font-size: 13px;
 }
 .creator-div img{
@@ -67,4 +60,4 @@
     background-color: black;
     border-radius: 5px;
     padding: 3px 10px;
-}
+} */

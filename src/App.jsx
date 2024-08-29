@@ -14,28 +14,39 @@ import AdminUsers from "./layouts/AdminUsers";
 import AdminContacts from "./layouts/AdminContacts";
 import AdminCourses from "./layouts/AdminCourses";
 import AdminUpdate from "./layouts/AdminUpdate";
+import { useAuth } from "./store/auth";
+import Loader from "./components/Loader";
 function App() {
+  // const { loading } = useAuth();
+  // console.log("loading ", loading);
   return (
     <>
-      <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/contact" element={<ContactUs />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<LogOut />} />
-          <Route path="*" element={<ErrorPage />} />
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route path="users" element={<AdminUsers />} />
-            <Route path="users/:id/edit" element={<AdminUpdate />} />
-            <Route path="contacts" element={<AdminContacts />} />
-            <Route path="courses" element={<AdminCourses />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+        <BrowserRouter>
+          <header>
+            <NavBar />
+          </header>
+          <main>
+      {/* {loading &&
+        <Loader />} */}
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/courses" element={<Courses />} />
+              <Route path="/contact" element={<ContactUs />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/logout" element={<LogOut />} />
+              <Route path="*" element={<ErrorPage />} />
+              <Route path="/admin" element={<AdminLayout />}>
+                <Route path="users" element={<AdminUsers />} />
+                <Route path="users/:id/edit" element={<AdminUpdate />} />
+                <Route path="contacts" element={<AdminContacts />} />
+                <Route path="courses" element={<AdminCourses />} />
+              </Route>
+            </Routes>
+          </main>
+          {/* <footer>this is footer</footer> */}
+        </BrowserRouter>
     </>
   );
 }

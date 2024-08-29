@@ -5,8 +5,8 @@ export const AuthContext = createContext();
 // this is provider
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
-  const [userdata, setUserdata] = useState("");
-  const [coursesData, setCoursesData] = useState("");
+  const [userdata, setUserdata] = useState([]);
+  const [coursesData, setCoursesData] = useState([]);
   const [loading, setLoading] = useState(true);
   const API = import.meta.env.VITE_SERVER_API;
   let isLoggedIn = !!token;

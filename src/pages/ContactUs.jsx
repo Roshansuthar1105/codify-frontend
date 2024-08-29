@@ -56,8 +56,15 @@ function ContactUs() {
     }
   };
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit}>
+    <div className="container form-page">
+       <div className="page-heading">Contact Us</div>
+      <div className="left">
+        <img src="contact.png" alt="image for signup" />
+      </div>
+      <div className="right">
+     
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="inputs">
         <label htmlFor="username">username : </label>
         <input
           type="username"
@@ -68,6 +75,8 @@ function ContactUs() {
           value={user.username}
           onChange={handleChange}
         />
+        </div>
+        <div className="inputs">
         <label htmlFor="email">Email : </label>
         <input
           type="email"
@@ -78,6 +87,8 @@ function ContactUs() {
           value={user.email}
           onChange={handleChange}
         />
+        </div>
+        <div className="inputs">
         <label htmlFor="message">message : </label>
         <textarea
           id="message"
@@ -87,10 +98,12 @@ function ContactUs() {
           value={user.message}
           onChange={handleChange}
           cols="30"
-          rows="10"
+          rows="3"
         ></textarea>
+        </div>       
         <button type="submit">Submit</button>
       </form>
+      </div>
     </div>
   );
 }
