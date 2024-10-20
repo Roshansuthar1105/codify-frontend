@@ -16,6 +16,7 @@ import AdminCourses from "./layouts/AdminCourses";
 import AdminUpdate from "./layouts/AdminUpdate";
 import { useAuth } from "./store/auth";
 import Loader from "./components/Loader";
+import Coursesd from "./components/demo/Coursesd.jsx";
 function App() {
   // const { loading } = useAuth();
   // console.log("loading ", loading);
@@ -32,6 +33,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/courses" element={<Courses />} />
+              <Route path="/democourses" element={<Coursesd />} />
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />

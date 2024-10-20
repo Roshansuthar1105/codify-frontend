@@ -57,6 +57,7 @@ function ContactUs() {
   };
   return (
     <div className="container form-page">
+      <div className="gradient-background"></div>
        <div className="page-heading">Contact Us</div>
       <div className="left">
         <img src="contact.png" alt="image for signup" />

@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Playwrite+IS:wght@100..400&display=swap');
+.fonts{
+  font-family: "Playwrite IS", cursive;
+  font-family: "Playwrite GB S", cursive;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg_buttons);
+  border-bottom: 2px solid black;
+  padding: 10px;
+  color: var(--text_clr);
+  position: relative;
+  width: 100%;
+  height: 85px;
+}
+
+nav .logo , .logo a {
+  font-size: xx-large;
+  font-family:"Playwrite GB S", cursive;
+  text-decoration: none;
+  color:white ;
+}
+
+
+ul {
+  display: flex;
+  flex-direction: row;
+}
+
+li {
+  list-style: none;
+  margin: 5px;
+  position: relative;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+.link::after {
+  content: "";
+  height: 10%;
+  width: 0%;  
+  background-color: var(--text_clr);
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  border-radius: 10px;
+  transition: width 0.2s ease-in-out;
+  transform-origin: left;
+  z-index: 1;
+}
+
+li .link,
+nav > h3,
+.close,
+.open {
+  text-decoration: none;
+  transition: all 0.2s;
+  transform-origin: left;
+  color: var(--text_clr);
+  background: transparent;
+  padding: 10px 15px;
+  z-index: 10;
+  font-size: larger;
+  cursor: pointer;
+}
+
+.close {
+  display: none;
+}
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  padding-left: 30px;
+  background-color: var(--bg_buttons_blur);
+  backdrop-filter: blur(10px);
+  font-size: 30px;
+  width: 400px;
+  max-width: 100dvw;
+  height: 100dvh;
+  right: -20px;
+  transition: transform 0.3s ease-in-out; /* Smooth sliding effect */
+  transform: translateX(100%); /* Hidden off-screen */
+  /* border-left: white 3px solid; */
+  border-top-left-radius: 50px;
+  border-bottom-left-radius:50px;
+  outline:3px solid white;
+}
+
+.side-nav.show {
+  transform: translateX(-20px); /* Slide in from right when the menu is open */
+}
+
+.side-nav .close {
+  position: fixed;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  top: 30px;
+  left: 30px;
+  padding: 5px;
+  border: 2px solid white;
+}
+
+.open {
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  border-radius: 50px;
+}
+@media screen and (max-width:425px) {
+  .side-nav{
+    border-radius: 0px;
+    width: 100dvw;
+    border: none;
+  }
+}

@@ -1,10 +1,14 @@
 /* common */
 @import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Luckiest+Guy&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Playwrite+IS:wght@100..400&display=swap');
 .fonts{
   font-family: "Concert One", sans-serif;
   font-family: "Luckiest Guy", cursive;
   font-family: "Righteous", sans-serif;
+  font-family: "Playwrite IS", cursive;
+  font-family: "Playwrite GB S", cursive;
 }
+
 * {
   padding: 0;
   margin: 0;
@@ -66,10 +70,31 @@ main {
   width: 100%;
 }
 .container {
-  background-color: var(--bg_primary);
+  min-height: calc(100dvh - 85px);
+  background-color:#000000;
   color: #fff;
-  min-height: calc(100vh - 85px);
   padding:10px;
+  overflow: hidden;
+  z-index: 1;
+  position: relative;
+}
+.container >*{
+  position: relative;
+  z-index: 2;
+}
+/* Grid background */
+.gradient-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.10) 1px, transparent 1.5px), /* Vertical lines */
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.10) 1px, transparent 1.5px); /* Horizontal lines */
+  background-size: 30px 30px;
+  
 }
 .page-heading {
   width: 100%;
@@ -88,113 +113,7 @@ main {
 /* #0074B7 */
 /* #60A3D9 */
 /* #BFD7ED */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--bg_buttons);
-  border-bottom: 2px solid black;
-  padding: 10px;
-  color: var(--text_clr);
-  position: relative;
-  /* position:absolute; */
-  /* top: 0; */
-  /* left: 0; */
-  width: 100%;
-}
-nav .logo {
-  text-wrap: nowrap;
-  font-size: xx-large;
-}
-ul {
-  display: flex;
-  flex-direction: row;
-}
-li {
-  list-style: none;
-  margin: 5px;
-  position: relative;
-}
 
-.link:hover {
-  color: var(--bg_secondary);
-}
-.link:hover::after {
-  width: 100%;
-}
-.link::after {
-  content: "";
-  height: 10%;
-  width: 0%;
-  background-color: var(--bg_secondary);
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  border-radius: 10px;
-  transition: width 0.2s ease-in-out;
-  transform-origin: left;
-  z-index: 1;
-}
-li .link,
-nav > h3,
-.close,
-.open {
-  text-decoration: none;
-  transition: all 0.2s;
-  transform-origin: left;
-  color: var(--text_clr);
-  background: transparent;
-  padding: 10px 15px;
-  z-index: 10;
-  font-size: larger;
-  cursor: pointer;
-}
-.close {
-  display: none;
-}
-.side-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  z-index: 100;
-  position: fixed;
-  top: 0;
-  padding-left: 30px;
-  background-color: var(--bg_buttons_blur);
-  backdrop-filter: blur(10px);
-  font-size: 30px;
-  width: 400px;
-  max-width: 100dvw;
-  height: 100dvh;
-  right: 0;
-  transition: all 0.3s ease-in-out;
-  border-left: white 3px solid;
-}
-.side-nav.show {
-  right: -400px;
-}
-.side-nav .close {
-  position: fixed;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  top: 30px;
-  left: 30px;
-  padding: 5px;
-  border: 2px solid white;
-}
-.open {
-  border: 2px solid white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 1;
-  border-radius: 50px;
-}
-/* nav bar end */
 /* sign Up page  */
 .form-page {
   display: flex;
@@ -211,8 +130,6 @@ nav > h3,
   justify-content: center;
   width: 40%;
   height: 75%;
-  /* background-color: #fff; */
-  /* overflow: hidden; */
 }
 .form-page .page-heading{
   text-align: center;
@@ -220,10 +137,16 @@ nav > h3,
 .form-page .left img{
   height: 100%;
   width: 100%;
-  backdrop-filter:drop-shadow(12px 14px 16px red) ;
 }
+.register .left img{
+  height: 80%;
+  width: 80%;
+}
+
 .form {
-  background-color: var(--bg_secondary);
+  /* background-color: var(--bg_secondary); */
+  background:#ffffff17;
+  backdrop-filter: blur(5px);
   /* color: var(--text_clr); */
   color: var(--text_clr);
   height: 500px;
@@ -232,7 +155,10 @@ nav > h3,
   flex-direction: column;
   padding: 10px;
   border-radius: 10px;
-  /* margin-top: 20px; */
+  border: 2px solid #9381ff;
+}
+.form  *::placeholder{
+  color: white;
 }
 .inputs {
   display: flex;
@@ -377,17 +303,7 @@ span.transparent{
   position: absolute;
   z-index: -1;
 } */
-.pencil{
-  top: -70px;
-  height:150px;
-  width: auto;
-  left:350px;
-}
-.planet{
-  top: -50px;
-  height: 100px;
-  right:200px;
-}
+
 span.doated{
   color: #707EFF;
   border-radius: 50px;
@@ -562,12 +478,9 @@ span.doated{
   justify-content: center;
   height: 70%;
   width: 45%;
-  background-color: var(--bg_secondary);
   border-radius: 10px;
-  box-shadow: 0px 0px 10px 10px var(--bg_buttons_blur);
 }
 .aboutus-page .left img{
-  filter:drop-shadow(3px 3px 10px var(--bg_buttons) ) ;
   width: 80%;
 }
 .aboutus-page .right {
@@ -576,6 +489,7 @@ span.doated{
   font-size: large;
   padding: 50px;
   font-size: larger;
+  background-color: var(--bg_secondary);
 }
 
 /* aboutus-page end */
@@ -587,13 +501,11 @@ span.doated{
   width: 100%;
   margin-top: -10px;
   overflow: hidden;
-  /* height: 100%; */
-  /* gap: 10px; */
-  /* padding: 10px; */
   background-color: var(--bg_primary);
+  height: calc(100dvh - 75px);
 }
 .admin-cont .left {
-  height: calc(100dvh - 104px);
+  height: calc(100dvh - 100px);
   flex-grow: 1;
   display: flex;
   align-items: center;
@@ -666,7 +578,7 @@ span.doated{
   height: calc(100dvh - 125px);
 }
 .right {
-  background-color: var(--bg_primary_blur);
+  /* background-color: var(--bg_primary_blur); */
   /* margin-bottom: 10px; */
   /* border: 2px solid red; */
 }
@@ -697,7 +609,7 @@ span.doated{
   background-color: var(--bg_secondary);
   border-radius: 30px;
   border-bottom: 1px solid var(--bg_primary);
-  /* overflow: hidden; */
+  text-transform: capitalize;
 }
 .data-table td {
   color: var(--text_clr);
@@ -744,7 +656,78 @@ span.doated{
   color: var(--text_clr);
   text-decoration: none;
 }
-
+@media screen and (max-width:1440px) {
+  .admin-cont {
+    flex-direction: column;
+  }
+  .admin-cont .left{
+    flex-grow: inherit;
+    width: 95%;
+    height:fit-content;
+  }
+  .admin-cont .right{
+    flex-grow: inherit;
+    width: 95%;
+  }
+  .admin-nav{
+    flex-direction: row;
+    width: 100%;
+  }
+  .admin-nav li a:hover{
+    transform: none;
+  }
+}
+@media screen and (max-width:768px) {
+  .admin-cont .right .data-table button{
+    font-size: 0px;
+  }
+  .admin-nav li a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  .admin-nav li a svg{
+    width: 30px;
+    height: 30px;
+  }
+  .admin-nav li a span{
+    text-align: center;
+    font-size: 0.8rem;
+  }
+  .admin-nav{
+    padding: 5px;
+  }
+  .admin-nav li{
+    padding: 5px;
+  }
+}
+@media screen and (max-width:425px) {
+  .admin-nav li a{
+    padding: 0px;
+  }
+  .admin-nav{
+    padding: 10px;
+  }
+  .admin-cont{
+    padding: 10px;
+  }
+  .admin-cont .left , .admin-nav .right{
+    width: 100%;
+  }
+  .admin-nav li a span{
+    display: none;
+  }
+  .admin-cont .right > *{
+    font-size: 0.4rem;
+  }
+  .admin-cont .right button a>*,.admin-cont .right button>*{
+    width: 10px;
+    height: 10px;
+  }
+  
+}
 /* update */
 .update-cont{
   display: flex;
@@ -753,6 +736,7 @@ span.doated{
   width: 100%;
   margin: 0;
   overflow: hidden;
+  background: transparent;
 }
 .update-cont .form{
   width: 100%;

@@ -48,7 +48,8 @@ function Signup() {
     }
   };
   return (
-    <div className="container form-page ">
+    <div className="container form-page register ">
+      <div className="gradient-background"></div>
       <div className="page-heading">Registration Page</div>
       <div className="left">
         <img src="signup.svg" alt="image for signup" />

@@ -6,6 +6,7 @@ function About() {
   const { userdata } = useAuth();
   return (
     <div className="container aboutus-page">
+      <div className="gradient-background"></div>
         <h2 className="page-heading" >Welcome {isLoggedIn ? userdata.username :"to Bitwise Learning"}</h2>
       <div className="left">
         <img src="aboutus.png" alt="" />

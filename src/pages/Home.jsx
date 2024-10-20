@@ -1,37 +1,56 @@
 import React from "react";
-import { useState } from "react";
-import "../components/css/Pages.css";
 import { NavLink } from "react-router-dom";
-function Home() {
-  //   const move = document.getElementById("follow");
-  // document.body.onpointermove = event => {
-  //     const { clientX, clientY } = event;
-  //     move.animate({
-  //         left: `${clientX}px`,
-  //         top: `${clientY}px`
-  //     }, {duration: 1000, fill: "forwards"})
-  // }
+import "../components/css/Home.css";
 
+function Home() {
   return (
-    <div className="container home-cont">
-      {/* <video id="home-bg" muted loop autoPlay src="Background.mp4"></video> */}
-      <img src="home/bg2.jpg" id="home-bg" alt="" />
-      <div className="logo-text">
-        <span className="doated" >bitwise</span>
-        <span className="yellow" >Learning</span>
+    <div className="home-container">
+      {/* Background with gradient */}
+      <div className="gradient-background"></div>
+
+      {/* Main Content */}
+      <div className="content-section">
+        {/* Headline and CTA */}
+        <div className="headline-section">
+          <h1 className="headline-text">
+            Discover Your <span className="highlight">Perfect Learning Path</span>
+          </h1>
+          <p className="subtext">
+            Explore new ways to learn with us through engaging and hands-on courses.
+          </p>
+          <NavLink to="/courses" className="cta-button">
+            Get Started
+          </NavLink>
+        </div>
       </div>
-      <div className="content">
-        <span className="white">create new</span>
-        <span className="yellow"> experience</span>
-        <span className="white">with</span>
-        <span className="transparent"><img className="pencil float" src="home/Designer.png" alt="" />ways of<img className="planet float" src="home/planet.svg" alt="" /> </span>
-        <span className="white">perfect</span>
-        <span className="yellow">learning</span><br />
+
+      {/* Features Section */}
+      <div className="features-section">
+        <div className="feature-item">
+          {/* <img src="home/feature1.svg" alt="Interactive Learning" /> */}
+          <h3>Interactive Learning</h3>
+          <p>Our courses provide hands-on learning with real-world examples.</p>
+        </div>
+        <div className="feature-item">
+          {/* <img src="home/feature2.svg" alt="Expert Instructors" /> */}
+          <h3>Expert Instructors</h3>
+          <p>Learn from industry professionals who guide you step by step.</p>
+        </div>
+        <div className="feature-item">
+          {/* <img src="home/feature3.svg" alt="Flexible Schedule" /> */}
+          <h3>Flexible Schedules</h3>
+          <p>Take courses at your own pace with flexible learning hours.</p>
+        </div>
       </div>
-      <div className="content right" >
-        <span className="transparent">---</span>
-      <span className="transparent">bitwise</span>
-        <span className="yellow">learning</span>
+
+      {/* Optional Floating Graphics */}
+      <div className="floating-elements">
+        {/* <img className="float pencil" src="home/Designer.png" alt="Designer" /> */}
+        <img className="float planet" src="home/planet.svg" alt="Planet" />
+      </div>
+      <div className="floating-elements">
+        <img className="float pencil" src="home/Designer.png" alt="Designer" />
+        {/* <img className="float planet" src="home/planet.svg" alt="Planet" /> */}
       </div>
     </div>
   );

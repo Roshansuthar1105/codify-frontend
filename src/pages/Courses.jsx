@@ -61,6 +61,7 @@ useEffect(()=>{
   return (
     <>
       <div id="courses-page" className="container courses-page ">
+      <div className="gradient-background"></div>
         <div id="courses_category"></div>
       </div>
     </>

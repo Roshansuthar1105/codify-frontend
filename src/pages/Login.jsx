@@ -49,6 +49,7 @@ function Login() {
     };
   return (
     <div className="container form-page ">
+      <div className="gradient-background"></div>
        <div className="page-heading">Login Page</div>
       <div className="left">
         <img src="login.svg" alt="image for signup" />

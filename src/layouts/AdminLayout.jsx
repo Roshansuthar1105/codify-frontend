@@ -15,6 +15,7 @@ function AdminLayout() {
   return ( 
     <>
     <div className="admin-cont container" >
+    <div className="gradient-background"></div>
       <div className="left" >
         <ul className="admin-nav">
           <li>
