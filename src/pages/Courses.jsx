@@ -1,71 +1,74 @@
-import React, { useEffect, useState } from "react";
-import "../components/css/Course.css";
-import { useAuth } from "../store/auth.jsx";
-import { toast } from "react-toastify";
-import CardBody from "../components/CardBody.js"
-// import { MdFavoriteBorder } from "react-icons/md";
-function Courses() {
+import React, { useState, useEffect } from 'react';
+import { useAuth } from '../store/auth.jsx';
+import SearchBar from '../components/SearchBar.jsx';
+import CardBody from '../components/CardBody.jsx';
+import '../components/css/Courses.css';
+const Courses = () => {
   const { coursesData } = useAuth();
-  const { loading } = useAuth();
-  let categoryArray=[];
-  coursesData.map((c)=>{
-    const a  =categoryArray.indexOf(c.course_category);
-    if(a==-1){
-      categoryArray.push(c.course_category);
-    }
-  });
-  // console.log(categoryArray);
-  function demo() {
-    // Sample array of objects
-const courses =coursesData;
-  // const makeDiv = CardBody;
-// Step 1: Group objects based on course_category
-const groupedCourses = courses.reduce((acc, obj) => {
-  const category = obj.course_category;
-  if (!acc[category]) {
-    acc[category] = [];
-  }
-  acc[category].push(obj);
-  return acc;
-}, {});
-// Step 2: Convert object into an array of arrays
-const result = Object.values(groupedCourses);
-return result;
-}
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [categories, setCategories] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  useEffect(() => {
+    // Extract unique categories from coursesData
+    const uniqueCategories = [...new Set(coursesData.map(course => course.course_category))];
+    setCategories(uniqueCategories);
+  }, [coursesData]);
 
-const loadRecourses = ()=>{
-  const courses = demo();
-  const page = document.getElementById('courses-page');
-  const category = document.getElementById('courses_category');
-  courses.map((current , ind )=>{
-    const div = document.createElement('div');
-    div.classList.add('course-container');
-    const cat = current[0].course_category;
-    div.classList.add(cat.replaceAll(" ","-"));
-    const heading = document.createElement('h2');
-    heading.innerText = cat;
-    console.log(heading,category);
-    heading.classList.add('course-heading');
-    category.appendChild(heading);
-    div.appendChild(heading);
-    for (let i = 0; i < current.length; i++) {
-      const element = current[i];
-      div.appendChild(CardBody(element));
+  // Filter courses based on selected category and search term
+  const filteredCourses = coursesData
+    .filter(course => 
+      (selectedCategory ? course.course_category === selectedCategory : true) &&
+      (course.course_title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+       course.description.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
+
+  const handleCategorySelect = (category) => {
+    if (category === 'All') {
+      setSelectedCategory(null); // Reset to show all courses
+    } else {
+      setSelectedCategory(category);
     }
-    page.appendChild(div);
-  })
-}
-useEffect(()=>{
-  loadRecourses();
-})
+  };
+
   return (
-    <>
-      <div id="courses-page" className="container courses-page ">
-      <div className="gradient-background"></div>
-        <div id="courses_category"></div>
+    <div className="courses-page">
+      <h2 className='course-heading page-heading' >{selectedCategory || 'All Courses' }</h2>
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <div className="categories">
+        <button
+          className={`category-button ${selectedCategory === null ? 'active' : ''}`}
+          onClick={() => handleCategorySelect('All')}
+        >
+          All
+        </button>
+        {categories.map((category, index) => (
+          <button
+            key={index}
+            className={`category-button ${selectedCategory === category ? 'active' : ''}`}
+            onClick={() => handleCategorySelect(category)}
+          >
+            {category}
+          </button>
+        ))}
       </div>
-    </>
+      <div className="courses">
+        {filteredCourses.length > 0 ? (
+          filteredCourses.map(course => (
+            <CardBody key={course._id} course={course} />
+          ))
+        ) : (
+          <div className="card">
+          <img src="https://img.freepik.com/free-vector/hand-drawn-no-data-illustration_23-2150544961.jpg?t=st=1729403294~exp=1729406894~hmac=ec87d355b9eaf1e9d5530b62be453b683494fbbe2bfe9cbde000ce01fe8e1037&w=1060" alt="No Course Found" className="course-image" />
+          <div className="card-content">
+            <h3 className="course-title">
+              No Courses Found { selectedCategory ? `in ${selectedCategory}`: ''}
+            </h3>
+          </div>
+        </div>
+          )}
+      </div>
+    </div>
   );
-}
+};
 
 export default Courses;

@@ -1,7 +1,7 @@
 import React from 'react';
-import './SearchBar.css'; // Optional: Import styles for the search bar
+import './css/SearchBar.css'; // Optional: Import styles for the search bar
 
-const SearchBard = ({ searchTerm, setSearchTerm }) => {
+const SearchBar = ({ searchTerm, setSearchTerm }) => {
   return (
     <div className="search-bar">
       <input
@@ -15,4 +15,4 @@ const SearchBard = ({ searchTerm, setSearchTerm }) => {
   );
 };
 
-export default SearchBard;
+export default SearchBar;

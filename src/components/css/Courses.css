@@ -11,6 +11,8 @@
   margin-bottom: 20px;
   max-width: 1200px;
   margin: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .category-button {
@@ -62,7 +64,7 @@
 @media screen and (min-width:768px) {
   .categories{
     position: sticky;
-    top: 80px;
+    top: 85px;
     left: 0;
     background-color: #181818;
   }

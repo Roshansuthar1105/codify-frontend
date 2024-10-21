@@ -5,6 +5,8 @@
   margin: auto;
   border-radius: 80px;
   overflow: hidden;
+  position: relative;
+  z-index: 3;
 }
 
 .search-input {

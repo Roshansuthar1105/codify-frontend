@@ -1,7 +1,7 @@
 import React from 'react';
-import './CardBodyd.css'; // Import styles for the card
+import './css/CardBody.css'; // Import styles for the card
 
-const CardBodyd = ({ course }) => {
+const CardBody = ({ course }) => {
   const { course_title,creator_youtube_link, description, creator_name, creator_image, course_image } = course;
   console.log(course)
   return (
@@ -21,4 +21,4 @@ const CardBodyd = ({ course }) => {
   );
 };
 
-export default CardBodyd;
+export default CardBody;

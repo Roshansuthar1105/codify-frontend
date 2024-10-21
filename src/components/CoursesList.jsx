@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useAuth } from '../../store/auth.jsx';
+import { useAuth } from '../store/auth.jsx';
 import CardBodyd from './CardBodyd';
 import SearchBard from './Searchbard.jsx'; // Import the SearchBar component
-import './Courses.css'; // Include your CSS styles here
+import './css/Courses.css'; // Include your CSS styles here
 
 const CoursesList = () => {
   const { coursesData } = useAuth();

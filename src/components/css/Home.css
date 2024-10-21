@@ -45,16 +45,6 @@
   font-size: 4rem;
   margin-bottom: 20px;
 }
-
-.bitwise-text {
-  color: #fff;
-}
-
-.learning-text {
-  color: #9381ff;
-  /* Soft purple */
-  margin-left: 10px;
-}
 .headline-section {
   text-align: center;
   margin-bottom: 40px;
@@ -80,11 +70,12 @@
   background-color: #9381ff; /* Soft purple */
   padding: 10px 30px;
   font-size: 1.2rem;
-  color: #000;
+  color: #fff;
   text-decoration: none;
   border-radius: 5px;
   text-transform: uppercase;
   border-radius: 30px;
+  /* font-family:  "Playwrite GB S"; */
 }
 
 .cta-button:hover {

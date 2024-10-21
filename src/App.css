@@ -101,6 +101,9 @@ main {
   text-align: left;
   font-size: 30px;
   font-weight: 900;
+  font-family: "Righteous", sans-serif;
+  letter-spacing: 1px;
+  font-size: 2.9rem;
 }
 /* common end */
 /* nav bar  */
@@ -190,6 +193,7 @@ main {
   padding: 10px 0;
   /* margin-left: 5px; */
   font-size: x-large;
+  font-family: "Playwrite GB S", cursive;
 }
 .inputs #show {
   position: absolute;
@@ -214,7 +218,9 @@ main {
 .form button:active {
   transform: scale(0.95);
 }
-
+.register.form label {
+  font-size: 1.1rem;
+}
 /* sign Up page end */
 
 /* home page  */
