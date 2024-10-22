@@ -3,7 +3,6 @@
   width: 100%;
   max-width: 600px;
   margin: auto;
-  border-radius: 80px;
   overflow: hidden;
   position: relative;
   z-index: 3;
@@ -12,11 +11,11 @@
 .search-input {
   width: 100%;
   padding: 10px 20px;
-  border: 1px solid #444; /* Dark border */
-  border-radius: 4px;
+  border: 1px solid var(--subtext); /* Dark border */
+  border-radius: 80px;
   font-size: 1rem;
-  background-color: #3e3e3e; /* Dark input background */
-  color: #fff; /* Light text color */
+  background-color: var(--bg_secondary); /* Dark input background */
+  color: var(--text_clr); /* Light text color */
 }
 
 .search-input:focus {

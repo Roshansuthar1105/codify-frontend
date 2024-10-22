@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
+import { AiOutlineEye , AiOutlineEyeInvisible} from "react-icons/ai";
 function Signup() {
   const [user, setUser] = useState({
     username: "",
@@ -11,6 +12,7 @@ function Signup() {
     phone: "",
     password: "",
   });
+  const [show , setShow]=useState(false);
   const [errMessage, setErrMessage] = useState("");
   const navigate = useNavigate();
   const { storeTokenInLS, API } = useAuth();
@@ -110,11 +112,11 @@ function Signup() {
               onClick={() => {
                 password.type =
                   password.type == "password" ? "text" : "password";
-                console.log(show);
-                show.innerHTML = show.innerHTML == "show" ? "hide" : "show";
+                setShow(!show);
               }}
-            >
-              show
+              >{
+                show ? <AiOutlineEyeInvisible/> : <AiOutlineEye/>
+              }
             </div>
           </div>
           <button type="submit">Submit</button>

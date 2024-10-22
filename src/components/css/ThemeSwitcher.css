@@ -1,0 +1,36 @@
+/* Toggle button container */
+.theme-toggle-btn {
+    background-color: var(--bg_secondary); /* Use your theme variable */
+    background-color: transparent;
+    border: none;
+    border-radius: 30px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border:2px solid var(--bg_primary);
+  }
+  
+  /* Icon container */
+  .theme-icon {
+    color: var(--bg_primary);
+    font-size: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* For light theme */
+  :root.light-theme .theme-toggle-btn {
+    /* background-color: var(--bg_primary); */
+
+  }
+  
+  :root.light-theme .theme-icon {
+    color: #fff;
+  }
+  
+  

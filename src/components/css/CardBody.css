@@ -3,14 +3,14 @@
   border-radius: 5px;
   overflow: hidden;
   width: 300px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7); /* Darker shadow */
+  box-shadow: 0 2px 10px var(--hover_clr); /* Darker shadow */
   transition: transform 0.2s, box-shadow 0.2s; /* Added shadow transition */
-  background-color: #242424; /* Card background */
+  background-color: var(--bg_secondary); /* Card background */
 }
 
 .card:hover {
   transform: scale(1.02);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9); /* Darker shadow on hover */
+  box-shadow: 0 4px 15px var(--hover_clr); /* Darker shadow on hover */
 }
 
 .course-image {
@@ -23,13 +23,14 @@
   padding: 15px;
   display: flex;
   flex-direction:column;
-  gap: 10px;
+  gap: 20px;
+  position: relative;
 }
 
 .course-title {
   font-size: 1.2rem;
   margin: 10px 0;
-  color: #f0f0f0; /* Light title color */
+  color: var(--text_clr);
   text-overflow: ellipsis; /* Ensures long titles are truncated */
   overflow: hidden;
   white-space: nowrap; /* Prevents text wrapping */
@@ -37,14 +38,16 @@
 
 .course-description {
   font-size: 0.9rem;
+  display: flex;
   color: #bbb; /* Lighter gray for descriptions */
+  color: var(--subtext);
 }
 
 .creator-info {
   display: flex;
-  align-items: center;
-  margin-top: 10px;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: start;
+  gap: 10px;
 }
 
 .creator-image {
@@ -59,17 +62,76 @@
 .creator-name {
   font-size: 1.2rem;
   text-decoration: none;
-  color: var(--bg_buttons); /* Lighter gray for creator names */
+  color:var(--creator); /* Lighter gray for creator names */
+}
+.card-btns{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .youtube-link{
   text-decoration: none;
-  margin: auto;
-  padding: 10px 20px;
-  background-color: #ea3322;
+  padding:0 20px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--yt_btn);
   border-radius: 30px;
   color: white;
   transition: all 0.2s ease-in-out;
 }
 .youtube-link:hover{
   background-color: #af261a;
+}
+.watchlist-button{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg_secondary);
+}
+.added{
+  background-color: var(--bg_buttons);;
+  border: 2px solid #fff;
+}
+.add{
+  border: 2px solid var(--text_clr);
+  background-color: var(--bg_secondary);
+}
+.watchlist-button::before{
+position: absolute;
+height: 0px;
+width: 0px;
+top: 0;
+left:0;
+transform: translate(-110%);
+z-index: 1;
+border-radius: 50%;
+background-color: var(--bg_buttons);;
+transition: all 0.3s ease-in-out;
+content: '';
+}
+.watchlist-button:hover{
+  background: var(--bg_buttons);;
+  border-color:var(--text_clr);
+} 
+ .add:hover .list-btns{
+  color:#fff;
+}
+.list-btns{
+  z-index: 2;
+  font-size: x-large;
+  color: var(--text_clr);
+}
+.add .list-btns{
+  color:var(--text_clr);
+}
+.added .list-btns{
+  color:#fff;
 }

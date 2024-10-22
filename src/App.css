@@ -16,29 +16,35 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 :root {
-  /* 
-  theme-1 dark
-  --bg_primary : #222831;
-  --bg_primary_blur : #2228316e;
-  --bg_secondary : #393E46;
-  --bg_buttons:#00ADB5;
-  --text_clr:#EEEEEE; 
-  */
-
-  /*
-  theme 2
-   --bg_primary : #dddfff;
-  --bg_primary_blur : #1904826e;
-  --bg_secondary : #7752FE;
-  --bg_buttons:#8E8FFA;
-  --text_clr:#F5EDED;  */
-  --bg_primary: #101212;
-  --bg_primary_blur: #10121288;
+  /* Dark theme variables */
+  --bg_primary: #000000;
+  --bg_primary_blur: #00000012;
   --bg_secondary: #1e1f1f;
+  --bg_secondary_light:#181818;
   --bg_buttons: #9381ff;
   --bg_buttons_blur: #9381ff55;
   --text_clr: #efeded;
-  /* --text_clr:#C2D9FF;  */
+  --gradient_clr:#ffffff1a;
+  --subtext:#ccc;
+  --form_bg:#ffffff17;
+  --hover_clr:#000000e6;
+  --yt_btn:#ea3322;
+  --creator:#ffa07a;
+}
+
+/* Light theme variables */
+:root.light-theme {
+  --creator:#ea3322;
+  --yt_btn:#ffa07a;
+  --hover_clr:#ffffffe6;
+  --bg_secondary_light:#c3c3c3;
+  --form_bg:#00000017;
+  --bg_primary: #ffffff;
+  --bg_primary_blur: #ffffff88;
+  --bg_secondary: #f2f1f1;
+  --gradient_clr:#0000001a;
+  --subtext:#333;
+  --text_clr: #202323;
 }
 .loader {
   position: fixed;
@@ -61,7 +67,7 @@ body {
 }
 header {
   position: sticky;
-  z-index: 5;
+  z-index: 500;
   width: 100%;
   top: 0;
 }
@@ -71,7 +77,7 @@ main {
 }
 .container {
   min-height: calc(100dvh - 85px);
-  background-color:#000000;
+  background-color:var(--bg_primary);
   color: #fff;
   padding:10px;
   overflow: hidden;
@@ -91,8 +97,8 @@ main {
   height: 100%;
   z-index: -1;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.10) 1px, transparent 1.5px), /* Vertical lines */
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.10) 1px, transparent 1.5px); /* Horizontal lines */
+    linear-gradient(to right, var(--gradient_clr) 1px, transparent 1.5px), /* Vertical lines */
+    linear-gradient(to bottom, var(--gradient_clr) 1px, transparent 1.5px); /* Horizontal lines */
   background-size: 30px 30px;
   
 }
@@ -104,19 +110,9 @@ main {
   font-family: "Righteous", sans-serif;
   letter-spacing: 1px;
   font-size: 2.9rem;
+  color: var(--text_clr);
 }
 /* common end */
-/* nav bar  */
-/* header {
-  padding: 0;
-  color: black;
-  background: #000;
-} */
-/* #003B73 */
-/* #0074B7 */
-/* #60A3D9 */
-/* #BFD7ED */
-
 /* sign Up page  */
 .form-page {
   display: flex;
@@ -147,8 +143,7 @@ main {
 }
 
 .form {
-  /* background-color: var(--bg_secondary); */
-  background:#ffffff17;
+  background-color: var(--form_bg);
   backdrop-filter: blur(5px);
   /* color: var(--text_clr); */
   color: var(--text_clr);
@@ -161,7 +156,7 @@ main {
   border: 2px solid #9381ff;
 }
 .form  *::placeholder{
-  color: white;
+  color: var(--subtext);
 }
 .inputs {
   display: flex;
@@ -180,25 +175,24 @@ main {
   padding: 5px 10px;
   font-size: large;
   margin: 10px 0;
-
   color: var(--text_clr);
   border-radius: 3px;
+  box-sizing: border-box;
 }
 .inputs input:focus , .inputs textarea:focus {
-  background-color: var(--bg_buttons_blur);
+  border:1px solid var(--bg_buttons);
 }
 .inputs label {
   border-bottom: 2px solid var(--bg_buttons);
   text-transform: capitalize;
   padding: 10px 0;
-  /* margin-left: 5px; */
   font-size: x-large;
   font-family: "Playwrite GB S", cursive;
 }
 .inputs #show {
   position: absolute;
-  bottom: 10px;
-  right: 20px;
+  bottom: 15px;
+  right: 15px;
   background-color: var(--bg_buttons);
   padding: 2px 5px;
   border-radius: 10px;
@@ -208,7 +202,7 @@ main {
   background-color: var(--bg_buttons);
   text-transform: capitalize;
   font-size: larger;
-  color: var(--text_clr);
+  color: #fff;
   padding: 5px;
   border-radius: 5px;
   margin: 10px;
@@ -225,17 +219,11 @@ main {
 
 /* home page  */
 .home-cont {
-  /* background-image: url('home/bg2.jpg');
-  background-position: center;
-  background-size: cover; */
   position: relative;
   z-index: 2;
-  /* background-color: transparent; */
   display: flex;
   flex-direction: column;
-  /* align-items: ; */
   justify-content: space-between;
-  /* backface-visibility: hidden; */
 }
 #home-bg {
   position: absolute;
@@ -244,7 +232,6 @@ main {
   height: 100%;
   width: 100%;
   z-index: -1;
-  /* filter: brightness(0.6); */
   opacity: 0.2;
   object-fit: cover;
 }
@@ -283,7 +270,6 @@ main {
   text-transform: uppercase;
   margin: 10px;
   line-height: 6vw;
-  /* -webkit-text-stroke:3px var(--bg_buttons); */
 }
 span.white:first-child{
   display: flex;
@@ -303,21 +289,13 @@ span.transparent{
   -webkit-text-stroke: 5px white;
   position: relative;
   z-index: 3;
-  /* text-shadow: 2px 2px 0px black; */
 }
-/* span.transparent .float{
-  position: absolute;
-  z-index: -1;
-} */
-
 span.doated{
   color: #707EFF;
   border-radius: 50px;
   border: 5px dashed #707EFF;
   border-style: dashed;
   line-height: 1px;
-  /* background-color: #fff; */
-  /* padding: 10px; */
 }
 #follow {
   background: linear-gradient(to right, #ff8e8e, #ff006a);
@@ -331,136 +309,6 @@ span.doated{
   z-index: -1;
 }
 /* home page end */
-
-/* courses page  */
-.courses-page {
-  padding: 20px;
-  background-color: var(--bg_primary);
-  /* background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%); */
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  gap: 30px;
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-}
-.course-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 20px;
-  border: 3px solid var(--bg_buttons_blur);
-  border-radius: 20px;
-  background-color: var(--bg_secondary);
-  backdrop-filter: blur(5px);
-}
-.course-container .course-heading {
-  grid-column: span 3;
-  /* background: var(--bg_buttons); */
-  /* backdrop-filter: blur(10px); */
-  padding: 30px 0;
-  margin-bottom: 20px;
-  border-bottom: 5px solid var(--bg_buttons_blur);
-  /* border-radius: 10px; */
-  /* color: var(--head_clr); */
-  color: var(--bg_buttons);
-  color: var(--text_clr);
-  font-size: xx-large;
-  text-align: center;
-  /* border: 2px solid var(--bg_secondary); */
-}
-.course-container .card-body {
-  position: relative;
-  border-radius: 20px;
-  height: max-content;
-  overflow: hidden;
-  position: relative;
-}
-.card-body:hover .btn-cont {
-  bottom: 0px;
-}
-.btn-cont {
-  transition: 0.5s;
-  position: absolute;
-  bottom: -100px;
-  width: 100%;
-  background-color: transparent;
-  backdrop-filter: blur(3px);
-  /* background: linear-gradient(90deg , rgba(255, 255, 255, 0.505) , rgba(0, 0, 0, 0.502)); */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 5px 20px;
-  border-top: 2px solid var(--bg_buttons);
-}
-.img-div img {
-  transition: 0.3s ease-in-out;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-.creator-div h6 {
-  font-size: small;
-}
-.creator-div p {
-  font-size: medium;
-}
-.creator-div div {
-  gap: 10px;
-  display: flex;
-  flex-direction: column;
-}
-.creator-div {
-  display: flex;
-  position: absolute;
-  align-items: center;
-  justify-content: start;
-  gap: 20px;
-  /* display: none; */
-  opacity: 0;
-  bottom: 0px;
-  height: 100%; 
-  width: 100%;
-  transition: 0.3s;
-  background: rgba(0,0,0,0.8);
-}
-.creator-div img {
-  border-radius: 50%;
-  border: 3px solid red;
-  height: 90px;
-  aspect-ratio: 1;
-}
-.btn-cont a,
-.btn-cont button {
-  text-decoration: none;
-  font-weight: 600;
-  padding: 10px 20px;
-  margin-top: 10px;
-  border-radius: 40px;
-  transition: 0.5s;
-  background: var(--bg_buttons);
-  color: var(--text_clr);
-  border: 2px solid black;
-}
-.btn-cont button {
-  cursor: pointer;
-  background: var(--bg_buttons);
-  color: var(--text_clr);
-  border: 2px solid var(--bg_primary);
-}
-.btn-cont a:hover,.btn-cont button:hover {
-  background: var(--text_clr);
-  border-color: red;
-  color: var(--bg_buttons);
-}
-.btn-cont a:active {
-  scale: 0.95;
-}
-.card-body:hover .creator-div {
-  opacity: 1;
-}
-/* courses page end */
 
 /* aboutus-page */
 .aboutus-page {
@@ -496,6 +344,10 @@ span.doated{
   padding: 50px;
   font-size: larger;
   background-color: var(--bg_secondary);
+  border: 1px solid var(--subtext);
+}
+.aboutus-page .right p{
+  color: var(--text_clr);
 }
 
 /* aboutus-page end */
@@ -661,6 +513,11 @@ span.doated{
 .data-table button a {
   color: var(--text_clr);
   text-decoration: none;
+}
+.dashboard .page-heading{
+  width: 100%;
+  /* align-items: center; */
+  text-align: center;
 }
 @media screen and (max-width:1440px) {
   .admin-cont {

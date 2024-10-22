@@ -4,11 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 import "../components/css/Pages.css";
+import { AiOutlineEye , AiOutlineEyeInvisible} from "react-icons/ai";
 function Login() {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+  const [show , setShow]=useState(false);
   const navigate = useNavigate();
   const { storeTokenInLS, API,userdata,isLoggedIn } = useAuth();
   const handleChange = (e) => {
@@ -79,6 +81,17 @@ function Login() {
             value={user.password}
             onChange={handleChange}
           />
+          <div
+            id="show"
+            onClick={() => {
+              password.type =
+                password.type == "password" ? "text" : "password";
+              setShow(!show);
+            }}
+            >{
+              show ? <AiOutlineEyeInvisible/> : <AiOutlineEye/>
+            }
+          </div>
         </div>
         <button type="submit">Submit</button>
       </form>

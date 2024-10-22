@@ -111,16 +111,27 @@ nav > h3,
   top: 30px;
   left: 30px;
   padding: 5px;
-  border: 2px solid white;
+  border: 2px solid #fff;
+  color: #fff;
 }
 
 .open {
-  border: 2px solid white;
+  border: 2px solid #fff;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   aspect-ratio: 1;
   border-radius: 50px;
+}
+/* .open ,.close{
+  color: #fff;
+  border-color:greenyellow ;
+} */
+.nav-btns{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 @media screen and (max-width:425px) {
   .side-nav{
