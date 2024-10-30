@@ -1,0 +1,15 @@
+.add-course-form{
+    width: 100%;
+    height: auto;
+}
+.add-course-form label , .add-course-form input , .add-course-form textarea{
+    font-size: small;
+}
+.center{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.center .left-side,.center .right-side{
+    width: 45%;
+}

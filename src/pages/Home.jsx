@@ -45,13 +45,12 @@ function Home() {
 
       {/* Optional Floating Graphics */}
       <div className="floating-elements">
-        {/* <img className="float pencil" src="home/Designer.png" alt="Designer" /> */}
         <img className="float planet" src="home/planet.svg" alt="Planet" />
       </div>
       <div className="floating-elements">
         <img className="float pencil" src="home/Designer.png" alt="Designer" />
-        {/* <img className="float planet" src="home/planet.svg" alt="Planet" /> */}
       </div>
+      
     </div>
   );
 }

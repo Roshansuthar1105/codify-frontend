@@ -42,7 +42,7 @@
   --bg_primary: #ffffff;
   --bg_primary_blur: #ffffff88;
   --bg_secondary: #f2f1f1;
-  --gradient_clr:#0000001a;
+  --gradient_clr:#00000008;
   --subtext:#333;
   --text_clr: #202323;
 }
@@ -435,10 +435,22 @@ span.doated{
   border-radius: 10px;
   height: calc(100dvh - 125px);
 }
-.right {
-  /* background-color: var(--bg_primary_blur); */
-  /* margin-bottom: 10px; */
-  /* border: 2px solid red; */
+.admin-courses-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+}
+.admin-courses-header a{
+  color: var(--text_clr);
+  font-size: larger;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 2px solid var(--bg_buttons);
+  text-decoration: none;
+  &:hover{
+    background-color: var(--bg_buttons);
+  }
 }
 .data-table,
 .data-table td {
@@ -455,6 +467,9 @@ span.doated{
   border-bottom: 5px solid var(--bg_primary);
   position: sticky;
   top: 0;
+}
+.data-table  a{
+  color: var(--text_clr);
 }
 /* .data-table tr:nth-child(n){
 } */

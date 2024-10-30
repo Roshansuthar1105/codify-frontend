@@ -38,7 +38,8 @@ function Login() {
         console.log(res_data.token);
         storeTokenInLS(res_data.token);
         toast.success("logged in SuccesFully");
-        navigate("/");
+        window.location.href = "/";
+        // navigate("/");
       } else {
         const err_data = await response.json();
         toast.warn(

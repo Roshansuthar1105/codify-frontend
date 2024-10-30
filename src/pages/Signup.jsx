@@ -38,7 +38,9 @@ function Signup() {
       storeTokenInLS(res_data.token);
       if (response.ok) {
         toast.success("Registration successfully :)");
-        navigate("/");
+        window.location.href = "/";
+        // to refresh the page and navigate to home page
+        // navigate("/");
       } else {
         setErrMessage(res_data);
         toast.warn(

@@ -24,7 +24,7 @@ function AdminLayout() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/admin/contacts"><MdFeedback /> <span>contacts</span></NavLink>
+            <NavLink to="/admin/contacts"><MdFeedback /> <span>Feedbacks</span></NavLink>
           </li>
           <li>
             <NavLink to="/admin/courses"><BiSolidBook /><span>courses</span> </NavLink>
