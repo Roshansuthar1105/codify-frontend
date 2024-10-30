@@ -135,3 +135,16 @@ content: '';
 .added .list-btns{
   color:#fff;
 }
+.edit-btn{
+  background-color: var(--bg_buttons);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--text_clr);
+}
+.edit-btn a{
+  text-decoration: none;
+  color: var(--text_clr);
+}
+

@@ -1,8 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "../components/css/Home.css";
+import { useAuth } from "../store/auth";
+import CreatorsContainer from "../components/CreatorsContainer";
 
 function Home() {
+  const {coursesData} = useAuth();
   return (
     <div className="home-container">
       {/* Background with gradient */}
@@ -50,7 +53,30 @@ function Home() {
       <div className="floating-elements">
         <img className="float pencil" src="home/Designer.png" alt="Designer" />
       </div>
-      
+      {/* Stats Section */}
+      <div className="stats-page">
+
+      <h2 className=" stats-heading" >Our Impact in <span style={{color: "var(--bg_buttons)"}} >Numbers</span></h2>
+      <div className="stats-section">
+        <div className="stat-item">
+          <h3>{coursesData?.length || 0}</h3>
+          <p>Total Courses</p>
+        </div>
+        <div className="stat-item">
+          <h3>{[...new Map(coursesData?.map(course => [course.creator_name, course])).values()].length || 0}</h3>
+          <p>Expert Creators</p>
+        </div>
+        <div className="stat-item">
+          <h3>1000+</h3>
+          <p>Active Users</p>
+        </div>
+      </div>
+      </div>
+      {/* Creators Showcase Section */}
+      <div className="creators-showcase">
+        <h2>Meet Our <span style={{color: "var(--bg_buttons)"}} >Top Creators</span></h2>
+        <CreatorsContainer count={5}  />
+      </div>
     </div>
   );
 }

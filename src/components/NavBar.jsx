@@ -78,6 +78,11 @@ function NavBar() {
                 Dashboard
               </NavLink>
             </li>
+            {userdata.isAdmin && (
+              <li>
+                <NavLink className="link" to="/admin">Admin Panel</NavLink>
+              </li>
+            )}
             <li>
               <NavLink className="link" to="/logout">
                 Logout

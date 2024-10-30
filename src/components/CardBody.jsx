@@ -3,6 +3,7 @@ import './css/CardBody.css'; // Import styles for the card
 import { useAuth } from '../store/auth';
 import { toast } from 'react-toastify';
 import { MdBookmarkBorder, MdBookmarkAdded } from "react-icons/md";
+import { Link } from 'react-router-dom';
 const CardBody = ({ course, watchlist = [], updateWatchlist }) => {
   const { course_title, creator_youtube_link, creator_name, creator_image, course_image } = course;
   const { API, userdata } = useAuth();
@@ -12,7 +13,7 @@ const CardBody = ({ course, watchlist = [], updateWatchlist }) => {
 
   const handleWatchlist = async () => {
     if (!userdata._id) {
-      toast.info("Not Logged in");
+      toast.info("Not Logged in !");
       return; // Prevent further execution if not logged in
     }
 
@@ -64,6 +65,7 @@ const CardBody = ({ course, watchlist = [], updateWatchlist }) => {
             </>
           )}
         </button>
+        {userdata.isAdmin && <button className='edit-btn' ><Link to={`/admin/courses/update/${course._id}`} > Edit </Link> </button>}
           </div>
       </div>
     </div>
