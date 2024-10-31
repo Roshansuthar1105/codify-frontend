@@ -1,0 +1,56 @@
+.roadmap-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.page-heading{
+    text-align: center;
+    margin: 50px 0;
+}
+.roadmap-item {
+  flex-grow: 1;
+  flex-shrink: 1;
+  background-color: var(--bg_buttons_blur);
+  border: 2px solid var(--bg_buttons);
+  width: auto;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease;
+  min-width: 300px;
+}
+
+.roadmap-item:hover {
+  transform: translateY(-5px);
+  background-color: var(--bg_buttons);
+  cursor: default;
+}
+
+.roadmap-item h3 {
+  color: var(--text_clr);
+  margin: 0;
+  font-family: "Playwrite IS", cursive;
+}
+
+.roadmap-item a {
+  background-color: var(--text_clr);
+  background-color:#fff;
+
+  color: var(--bg_buttons);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.roadmap-item a:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}

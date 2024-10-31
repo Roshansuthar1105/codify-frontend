@@ -8,17 +8,19 @@ import NavBar from "./components/NavBar";
 import ErrorPage from "./pages/ErrorPage";
 import LogOut from "./pages/LogOut";
 import Courses from "./pages/Courses";
-import AdminLayout from "./layouts/AdminLayout";
-import AdminUsers from "./layouts/AdminUsers";
-import AdminContacts from "./layouts/AdminContacts";
-import AdminCourses from "./layouts/AdminCourses";
-import AdminUpdate from "./layouts/AdminUpdate";
 import { useAuth } from "./store/auth";
 import Loader from "./components/Loader";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
-import AddNewCourse from "./layouts/AddNewCourse";
-import CourseUpdate from "./layouts/CourseUpdate";
+import CourseUpdate from "./layouts/CourseLayout/CourseUpdate";
+import Roadmap from "./pages/Roadmap";
+import AdminLayout from "./layouts/AdminLayout";
+import AdminUsers from "./layouts/AdminUsers";
+import AdminContacts from "./layouts/AdminContacts";
+import AdminCourses from "./layouts/CourseLayout/AdminCourses";
+import AdminUpdate from "./layouts/AdminUpdate";
+import AddNewCourse from "./layouts/CourseLayout/AddNewCourse.jsx";
+import Footer from "./components/Footer.jsx";
 function App() {
   return (
     <Router>
@@ -30,6 +32,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/courses" element={<Courses />} />
+          <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
@@ -46,6 +49,7 @@ function App() {
           </Route>
         </Routes>
       </main>
+      <Footer />
     </Router>
   );
 }

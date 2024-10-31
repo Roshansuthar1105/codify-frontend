@@ -37,9 +37,9 @@ function Dashboard() {
 
   return (
     <div className="dashboard container">
-      <h2 className='page-heading'>{userdata.username}'s dashboard</h2>
+      <h2 className='page-heading'>{userdata ? `${userdata.username.toUpperCase()}'s` : "Your"} Dashboard</h2>
       <div className="gradient-background"></div>
-      <h3 className='watchlist-heading' >Your Watchlist ({watchlist.length})</h3>
+      <h3 className='watchlist-heading' >Total Courses - {watchlist.length}</h3>
       <div className="courses">
         {watchlist.length > 0 ? (
           watchlist.map(course => (

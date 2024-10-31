@@ -20,7 +20,7 @@
 
 .search-input:focus {
   outline: none;
-  border-color: #007bff; /* Blue border on focus */
+  border-color: var(--bg_buttons); /* Blue border on focus */
   border-radius: 80px;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle shadow */
 }

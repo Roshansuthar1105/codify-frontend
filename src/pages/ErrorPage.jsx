@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import './css/ErrorPage.css'
+import '../components/css/ErrorPage.css'
 function ErrorPage() {
   return (
     <div className='container error-container' >

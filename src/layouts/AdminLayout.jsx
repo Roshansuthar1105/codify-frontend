@@ -29,11 +29,11 @@ function AdminLayout() {
           <li>
             <NavLink to="/admin/courses"><BiSolidBook /><span>courses</span> </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to="/">
               <FaHome /> <span>home</span>
             </NavLink>
-          </li>
+          </li> */}
         </ul>
       </div>
       <div className="right">

@@ -1,6 +1,6 @@
 import { BiCloudLightRain } from "react-icons/bi";
-import { useAuth } from "../store/auth";
-import "./AddNewCourse.css";
+import { useAuth } from "../../store/auth";
+import "../../components/css/AddNewCourse.css";
 import { useEffect, useState } from "react";
 import {toast} from "react-toastify";
 import CourseForm from "./CourseForm";

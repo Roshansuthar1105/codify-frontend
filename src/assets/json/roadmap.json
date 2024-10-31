@@ -1,0 +1,150 @@
+[
+    {
+        "roadmap_name": "Frontend",
+        "roadmap_link": "https://roadmap.sh/frontend"
+    },
+    {
+        "roadmap_name": "Backend",
+        "roadmap_link": "https://roadmap.sh/backend"
+    },
+    {
+        "roadmap_name": "DevOps",
+        "roadmap_link": "https://roadmap.sh/devops"
+    },
+    {
+        "roadmap_name": "Full Stack",
+        "roadmap_link": "https://roadmap.sh/full-stack"
+    },
+    {
+        "roadmap_name": "AI Engineer",
+        "roadmap_link": "https://roadmap.sh/ai-engineer"
+    },
+    {
+        "roadmap_name": "Data Analyst",
+        "roadmap_link": "https://roadmap.sh/data-analyst"
+    },
+    {
+        "roadmap_name": "Software Architect",
+        "roadmap_link": "https://roadmap.sh/software-architect"
+    },
+    {
+        "roadmap_name": "Software Design and Architecture",
+        "roadmap_link": "https://roadmap.sh/software-design-architecture"
+    },
+    {
+        "roadmap_name": "JavaScript",
+        "roadmap_link": "https://roadmap.sh/javascript"
+    },
+    {
+        "roadmap_name": "Node.js",
+        "roadmap_link": "https://roadmap.sh/nodejs"
+    },
+    {
+        "roadmap_name": "TypeScript",
+        "roadmap_link": "https://roadmap.sh/typescript"
+    },
+    {
+        "roadmap_name": "Python",
+        "roadmap_link": "https://roadmap.sh/python"
+    },
+    {
+        "roadmap_name": "System Design",
+        "roadmap_link": "https://roadmap.sh/system-design"
+    },
+    {
+        "roadmap_name": "Java",
+        "roadmap_link": "https://roadmap.sh/java"
+    },
+    {
+        "roadmap_name": "Spring Boot",
+        "roadmap_link": "https://roadmap.sh/spring-boot"
+    },
+    {
+        "roadmap_name": "PostgreSQL",
+        "roadmap_link": "https://roadmap.sh/postgresql-dba"
+    },
+    {
+        "roadmap_name": "SQL",
+        "roadmap_link": "https://roadmap.sh/sql"
+    },
+    {
+        "roadmap_name": "Blockchain",
+        "roadmap_link": "https://roadmap.sh/blockchain"
+    },
+    {
+        "roadmap_name": "QA",
+        "roadmap_link": "https://roadmap.sh/qa"
+    },
+    {
+        "roadmap_name": "Software Testing",
+        "roadmap_link": "https://roadmap.sh/software-testing"
+    },
+    {
+        "roadmap_name": "Cyber Security",
+        "roadmap_link": "https://roadmap.sh/cyber-security"
+    },
+    {
+        "roadmap_name": "UX Design",
+        "roadmap_link": "https://roadmap.sh/ux-design"
+    },
+    {
+        "roadmap_name": "React",
+        "roadmap_link": "https://roadmap.sh/react"
+    },
+    {
+        "roadmap_name": "Vue",
+        "roadmap_link": "https://roadmap.sh/vue"
+    },
+    {
+        "roadmap_name": "Angular",
+        "roadmap_link": "https://roadmap.sh/angular"
+    },
+    {
+        "roadmap_name": "Design System",
+        "roadmap_link": "https://roadmap.sh/design-system"
+    },
+    {
+        "roadmap_name": "Computer Science",
+        "roadmap_link": "https://roadmap.sh/computer-science"
+    },
+    {
+        "roadmap_name": "Flutter",
+        "roadmap_link": "https://roadmap.sh/flutter"
+    },
+    {
+        "roadmap_name": "Android",
+        "roadmap_link": "https://roadmap.sh/android"
+    },
+    {
+        "roadmap_name": "ASP.NET Core",
+        "roadmap_link": "https://roadmap.sh/aspnet-core"
+    },
+    {
+        "roadmap_name": "C++",
+        "roadmap_link": "https://roadmap.sh/cpp"
+    },
+    {
+        "roadmap_name": "Go",
+        "roadmap_link": "https://roadmap.sh/golang"
+    },
+    {
+        "roadmap_name": "Rust",
+        "roadmap_link": "https://roadmap.sh/rust"
+    },
+    {
+        "roadmap_name": "MongoDB",
+        "roadmap_link": "https://roadmap.sh/mongodb"
+    },
+    {
+        "roadmap_name": "Docker",
+        "roadmap_link": "https://roadmap.sh/docker"
+    },
+    {
+        "roadmap_name": "Kubernetes",
+        "roadmap_link": "https://roadmap.sh/kubernetes"
+    },
+    {
+        "roadmap_name": "GraphQL",
+        "roadmap_link": "https://roadmap.sh/graphql"
+    }
+]

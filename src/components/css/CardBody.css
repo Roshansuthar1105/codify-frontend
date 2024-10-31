@@ -136,15 +136,21 @@ content: '';
   color:#fff;
 }
 .edit-btn{
-  background-color: var(--bg_buttons);
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text_clr);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
   cursor: pointer;
-  color: var(--text_clr);
+  transition: all 0.3s ease-in-out;
+  border:2px solid var(--text_clr);
+  background-color: transparent;
+  &:hover{
+    background-color: var(--bg_buttons);
+  }
 }
-.edit-btn a{
-  text-decoration: none;
-  color: var(--text_clr);
+.edit-btn:hover .list-btns{
+  color: #fff;
 }
-

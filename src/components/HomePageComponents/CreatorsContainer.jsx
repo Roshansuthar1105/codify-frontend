@@ -1,4 +1,5 @@
-import { useAuth } from "../store/auth";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../store/auth";
 
 const CreatorsContainer = ({count}) => {
     const {coursesData} = useAuth();
@@ -6,7 +7,7 @@ const CreatorsContainer = ({count}) => {
 
     return (<div className="creators-grid">
         {/* Filter unique creators and map through them */}
-        {topCreators.slice(0, count).map((course, index) => (
+        {topCreators.slice(0, count-1).map((course, index) => (
           <div key={index} className="creator-card">
             <img 
               src={course.creator_image} 
@@ -24,6 +25,15 @@ const CreatorsContainer = ({count}) => {
             </a>
           </div>
         ))}
+          <div className="creator-card">
+            <img src="favicon.png" height={"auto"} width={40} className="creator-avatar"  alt="Logo Codify" />
+            <h3>And Many More</h3>
+            <Link className="creator-link"
+
+            >
+              View More
+            </Link>
+          </div>
       </div>
     )
 }

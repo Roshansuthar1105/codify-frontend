@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "../store/auth";
+import { useAuth } from "../../store/auth";
 import CourseForm from "./CourseForm";
 import { useParams } from "react-router";
 import { toast } from "react-toastify";
-import CardBody from "../components/CardBody";
+import CardBody from "../../components/CardBody";
 
 const CourseUpdate = () => {
     const [newCourse, setNewCourse] = useState({

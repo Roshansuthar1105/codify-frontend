@@ -1,0 +1,101 @@
+[
+    {
+        "course_category": "MERN Stack",
+        "course_image": "https://i.ytimg.com/vi/ktjafK4SgWM/hq720.jpg?sqp=-oaymwEcCOADEOgC8quKqQMa8AEB-AH-BIAC4AOKAgwIABABGFAEgKuwyg=&rs=AOn4CLD2I_HeHBBpd3wds8QdW46k7KoQIQ",
+        "course_title": "Learn the MERN Stack - Full Tutorial for Beginners",
+        "creator_image": "https://yt3.ggpht.com/ytc/AIdro_kotL-OQVXsay2vKRujBvNWcY47UZUwC-axNozc8Mzdutk=s88-c-k-c0x00ffffff-no-rj",
+        "creator_name": "Clever Programmer",
+        "creator_youtube_link": "https://www.youtube.com/watch?v=ktjafK4SgWM",
+        "description": "Learn the MERN Stack - Full Tutorial for Beginners (MongoDB, Express, React, NodeJS) in 12Hrs (2021)"
+    },
+    {
+        "course_category": "Web Development",
+        "course_image": "https://i.ytimg.com/vi/PkZNo7MFNFg/hqdefault.jpg",
+        "course_title": "Learn JavaScript - Full Course for Beginners",
+        "creator_image": "https://yt3.ggpht.com/ytc/AMLnZu-PjRc81p0qP-ZPWxv8aY4k-4gFRzGEYs3HWbIQ=s176-c-k-c0x00ffffff-no-rj",
+        "creator_name": "freeCodeCamp.org",
+        "creator_youtube_link": "https://www.youtube.com/watch?v=PkZNo7MFNFg",
+        "description": "This complete 134-part JavaScript tutorial for beginners will teach you everything you need to know to get started with the JavaScript programming language."
+    },
+    {
+        "course_category": "Python",
+        "course_image": "https://i.ytimg.com/vi/_uQrJ0TkZlc/hqdefault.jpg",
+        "course_title": "Python Tutorial - Python Full Course for Beginners",
+        "creator_image": "https://yt3.ggpht.com/ytc/AMLnZu_Uksjq0hZKO8HU9HE94kHHBjynvBVqRoC7_v5_FA=s176-c-k-c0x00ffffff-no-rj",
+        "creator_name": "Programming with Mosh",
+        "creator_youtube_link": "https://www.youtube.com/watch?v=_uQrJ0TkZlc",
+        "description": "Python tutorial - Python full course for beginners - Go from Zero to Hero with Python"
+    },
+    {
+        "course_category": "Python",
+        "course_image": "https://i.ytimg.com/vi/rfscVS0vtbw/hqdefault.jpg",
+        "course_title": "Learn Python - Full Course for Beginners [Tutorial]",
+        "creator_image": "https://yt3.ggpht.com/ytc/AMLnZu-PjRc81p0qP-ZPWxv8aY4k-4gFRzGEYs3HWbIQ=s176-c-k-c0x00ffffff-no-rj",
+        "creator_name": "freeCodeCamp.org",
+        "creator_youtube_link": "https://www.youtube.com/watch?v=rfscVS0vtbw",
+        "description": "This course will give you a full introduction into all of the core concepts in python."
+    },
+    {
+        "course_category": "Python",
+        "course_image": "https://i.ytimg.com/vi/XKHEtdqhLK8/hqdefault.jpg",
+        "course_title": "Python for Beginners - Learn Python in 1 Hour",
+        "creator_image": "https://yt3.ggpht.com/ytc/AMLnZu_Uksjq0hZKO8HU9HE94kHHBjynvBVqRoC7_v5_FA=s176-c-k-c0x00ffffff-no-rj",
+        "creator_name": "Programming with Mosh",
+        "creator_youtube_link": "https://www.youtube.com/watch?v=XKHEtdqhLK8",
+        "description": "This Python tutorial for beginners shows how to get started with Python quickly."
+    },
+    {
+        "course_category": "Python",
+        "course_image": "https://i.ytimg.com/vi/t8pPdKYpowI/hqdefault.jpg",
+        "course_title": "Python for Beginners | Full Python Programming Course",
+        "creator_image": "https://yt3.ggpht.com/ytc/AMLnZu8dZQJYCt6Ffcd-pl113huuo_HJ3PpvgkyFk5FkrQ=s176-c-k-c0x00ffffff-no-rj",
+        "creator_name": "Apna College",
+        "creator_youtube_link": "https://www.youtube.com/watch?v=t8pPdKYpowI",
+        "description": "Learn Python programming with this comprehensive course for beginners."
+    },
+    {
+        "course_category": "Python",
+        "course_image": "https://i.ytimg.com/vi/WGJJIrtnfpk/hqdefault.jpg",
+        "course_title": "Python Full Course for Free",
+        "creator_image": "https://yt3.ggpht.com/ytc/AMLnZu_DCGu8A0HBfRG5Ky6Q6UmcEGtHDCk5kWwA9GEk=s176-c-k-c0x00ffffff-no-rj",
+        "creator_name": "Bro Code",
+        "creator_youtube_link": "https://www.youtube.com/watch?v=WGJJIrtnfpk",
+        "description": "Learn Python programming with this complete course for beginners. This course teaches Python 3."
+    },
+    {
+        "course_category": "Python",
+        "course_image": "https://i.ytimg.com/vi/eWRfhZUzrAc/hqdefault.jpg",
+        "course_title": "Python for Data Science - Course for Beginners",
+        "creator_image": "https://yt3.ggpht.com/ytc/AMLnZu-PjRc81p0qP-ZPWxv8aY4k-4gFRzGEYs3HWbIQ=s176-c-k-c0x00ffffff-no-rj",
+        "creator_name": "freeCodeCamp.org",
+        "creator_youtube_link": "https://www.youtube.com/watch?v=eWRfhZUzrAc",
+        "description": "Learn Python for Data Science with this comprehensive course. Perfect for beginners in data analysis."
+    },
+    {
+        "course_category": "Python",
+        "course_image": "https://i.ytimg.com/vi/YfO28Ihehbk/hqdefault.jpg",
+        "course_title": "Python for Machine Learning & AI",
+        "creator_image": "https://yt3.ggpht.com/ytc/AMLnZu8LAhB8ZYrOJVGxGFYeGNyxHVQgSs_qWoF3-_IyPA=s176-c-k-c0x00ffffff-no-rj",
+        "creator_name": "Krish Naik",
+        "creator_youtube_link": "https://www.youtube.com/watch?v=YfO28Ihehbk",
+        "description": "Complete Python course focused on Machine Learning and Artificial Intelligence applications."
+    },
+    {
+        "course_category": "Python",
+        "course_image": "https://i.ytimg.com/vi/qwAFL1597eM/hqdefault.jpg",
+        "course_title": "Python Django Tutorial for Beginners",
+        "creator_image": "https://yt3.ggpht.com/ytc/AMLnZu_Uksjq0hZKO8HU9HE94kHHBjynvBVqRoC7_v5_FA=s176-c-k-c0x00ffffff-no-rj",
+        "creator_name": "Programming with Mosh",
+        "creator_youtube_link": "https://www.youtube.com/watch?v=qwAFL1597eM",
+        "description": "Learn Django web framework with Python in this comprehensive tutorial for beginners."
+    },
+    {
+        "course_category": "React",
+        "course_image": "https://i.ytimg.com/vi/bMknfKXIFA8/hqdefault.jpg",
+        "course_title": "React Course - Beginner's Tutorial for React JavaScript Library [2022]",
+        "creator_image": "https://yt3.ggpht.com/ytc/AMLnZu-PjRc81p0qP-ZPWxv8aY4k-4gFRzGEYs3HWbIQ=s176-c-k-c0x00ffffff-no-rj",
+        "creator_name": "freeCodeCamp.org",
+        "creator_youtube_link": "https://www.youtube.com/watch?v=bMknfKXIFA8",
+        "description": "Learn React by building eight real-world projects and solving 140+ coding challenges."
+    }
+]

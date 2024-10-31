@@ -184,6 +184,7 @@
   min-width: 150px;
   width: 250px;
   text-align: center;
+  border: 1px solid var(--subtext);
 }
 
 .creator-card:hover {
@@ -208,7 +209,7 @@
   display: inline-block;
   padding: 0.5rem 1rem;
   background-color: var(--bg_buttons);
-  color: var(--text_clr);
+  color: #fff;
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s ease;
@@ -265,6 +266,94 @@
   font-size: 1.2rem;
   color: var(--text_clr);
 }
+/* Learning Paths/Roadmaps Section */
+.learning-paths-showcase {
+  width: 100%;
+  padding: 4rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.paths-heading {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.paths-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.path-card {
+  position: relative;
+  background: var(--bg_secondary);
+  border-radius: 10px;
+  padding: 2rem;
+  min-height: 150px;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  border: 1px solid var(--subtext);
+}
+
+.path-card:hover {
+  transform: translateY(-5px);
+}
+
+.glowing-border {
+  /* border: 1px solid var(--subtext); */
+  box-shadow: 0 0 15px rgba(147, 129, 255, 0.1);
+}
+
+.path-content {
+  z-index: 1;
+  text-align: center;
+}
+
+.path-title {
+  font-size: 1.0rem;
+  color: var(--text_clr);
+  margin-bottom: 1.5rem;
+}
+
+.path-cta {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--bg_buttons);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.path-cta:hover {
+  background-color: var(--bg_buttons_hover);
+  transform: scale(1.05);
+}
+
+.pulse-button {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(147, 129, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(147, 129, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(147, 129, 255, 0);
+  }
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -303,5 +392,422 @@
   }
   .feature-item{
     width: 75%;
+  }
+}
+/* css for demo path card */
+/* Testimonials Section */
+.testimonials-section {
+  padding: 4rem 2rem;
+  background: var(--bg_dark);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.testimonial-card {
+  background: var(--bg_light);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-content p {
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.testimonial-author h4 {
+  color: var(--bg_buttons);
+  margin-bottom: 0.25rem;
+}
+
+/* Newsletter Section */
+.newsletter-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), var(--bg_dark);
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid var(--subtext);
+  border-radius: 5px;
+  background: var(--bg_light);
+}
+
+.subscribe-button {
+  padding: 1rem 2rem;
+  background: var(--bg_buttons);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border: 1px solid var(--bg_buttons);
+}
+
+.subscribe-button:hover {
+  background: var(--bg_buttons_hover);
+}
+
+/* Latest Courses Section */
+.latest-courses {
+  padding: 4rem 2rem;
+  background: var(--bg_dark);
+}
+
+.courses-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.course-preview-card {
+  background: var(--bg_light);
+  border-radius: 10px;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.course-preview-card:hover {
+  transform: translateY(-5px);
+}
+
+.view-course-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  background: var(--bg_buttons);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.view-course-btn:hover {
+  background: var(--bg_buttons_hover);
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+  padding: 4rem 2rem;
+  background: var(--bg_dark);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.benefit-card {
+  text-align: center;
+  padding: 2rem;
+  background: var(--bg_light);
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* FAQ Section */
+.faq-section {
+  padding: 4rem 2rem;
+  background: var(--bg_dark);
+}
+
+.faq-grid {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.faq-item {
+  background: var(--bg_light);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.faq-item summary {
+  padding: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  list-style: none;
+  position: relative;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: '+';
+  position: absolute;
+  right: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-item p {
+  padding: 1rem;
+  margin: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.faq-item p {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease;
+  padding: 0 1rem;
+  margin: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-item[open] p {
+  max-height: 200px;
+  padding: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form input,
+  .subscribe-button {
+    width: 100%;
+  }
+
+  .testimonials-grid,
+  .courses-preview,
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Common Section Headings */
+.testimonials-section h2,
+.newsletter-section h2,
+.latest-courses h2,
+.why-choose-us h2,
+.faq-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+/* Animation for cards */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.testimonial-card,
+.course-preview-card,
+.benefit-card {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+/* Final CTA Section */
+.final-cta-section {
+  padding: 6rem 2rem;
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), var(--bg_dark);
+  margin-top: 2rem;
+}
+
+.final-cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.final-cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primary-cta,
+.secondary-cta {
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.primary-cta {
+  background: var(--bg_buttons);
+  color: white;
+}
+
+.secondary-cta {
+  background: transparent;
+  color: var(--bg_buttons);
+  border: 2px solid var(--bg_buttons);
+}
+
+.primary-cta:hover,
+.secondary-cta:hover {
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .final-cta-section {
+    padding: 4rem 1rem;
+  }
+  
+  .final-cta-section h2 {
+    font-size: 2rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+  }
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+}
+
+.testimonial-card {
+  background: var(--bg_secondary);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid var(--subtext);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-content p {
+  font-style: italic;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: var(--text_clr);
+}
+
+.testimonial-author h4 {
+  color: var(--bg_buttons);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-author p {
+  color: var(--subtext);
+  font-size: 0.9rem;
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+}
+
+.benefit-card {
+  background: var(--bg_secondary);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  border: 1px solid var(--subtext);
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.benefit-card h3 {
+  color: var(--text_clr);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.benefit-card p {
+  color: var(--subtext);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid,
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  
+  .testimonial-card,
+  .benefit-card {
+    padding: 1.5rem;
   }
 }

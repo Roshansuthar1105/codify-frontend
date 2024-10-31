@@ -16,7 +16,18 @@ nav {
   height: 85px;
   z-index: 999;
 }
-
+nav .logo a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+/* nav .logo a{
+  color: transparent;
+  background-image: linear-gradient(to right, #60cef9, #601ff0, #4595f6);
+  background-clip: text;
+  -webkit-background-clip: text;
+} */
 nav .logo , .logo a {
   font-size: xx-large;
   font-family:"Playwrite GB S", cursive;

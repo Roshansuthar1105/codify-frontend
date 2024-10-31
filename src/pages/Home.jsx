@@ -1,11 +1,16 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "../components/css/Home.css";
 import { useAuth } from "../store/auth";
-import CreatorsContainer from "../components/CreatorsContainer";
+import CreatorsContainer from "../components/HomePageComponents/CreatorsContainer";
+import ChooseUs from "../components/HomePageComponents/ChooseUs";
+import FAQ from "../components/HomePageComponents/FAQ";
+import Testimonials from "../components/HomePageComponents/Testimonials";
+import NewsLetter from "../components/HomePageComponents/NewsLetter";
+import CallToAction from "../components/HomePageComponents/CallToAction";
 
 function Home() {
-  const {coursesData} = useAuth();
+  const { coursesData } = useAuth();
   return (
     <div className="home-container">
       {/* Background with gradient */}
@@ -56,27 +61,64 @@ function Home() {
       {/* Stats Section */}
       <div className="stats-page">
 
-      <h2 className=" stats-heading" >Our Impact in <span style={{color: "var(--bg_buttons)"}} >Numbers</span></h2>
-      <div className="stats-section">
-        <div className="stat-item">
-          <h3>{coursesData?.length || 0}</h3>
-          <p>Total Courses</p>
+        <h2 className="stats-heading">Making an Impact <span style={{ color: "var(--bg_buttons)" }}>Together</span></h2>
+        <div className="stats-section">
+          <div className="stat-item">
+            <h3>{coursesData?.length || 70}+</h3>
+            <p>Courses</p>
+          </div>
+          <div className="stat-item">
+            <h3>{35}+</h3>
+            <p>Roadmaps</p>
+          </div>
+          <div className="stat-item">
+            <h3>{[...new Map(coursesData?.map(course => [course.creator_name, course])).values()].length || 30}+</h3>
+            <p>Expert Creators</p>
+          </div>
+          <div className="stat-item">
+            <h3>1000+</h3>
+            <p>Active Users</p>
+          </div>
         </div>
-        <div className="stat-item">
-          <h3>{[...new Map(coursesData?.map(course => [course.creator_name, course])).values()].length || 0}</h3>
-          <p>Expert Creators</p>
-        </div>
-        <div className="stat-item">
-          <h3>1000+</h3>
-          <p>Active Users</p>
-        </div>
-      </div>
       </div>
       {/* Creators Showcase Section */}
       <div className="creators-showcase">
-        <h2>Meet Our <span style={{color: "var(--bg_buttons)"}} >Top Creators</span></h2>
-        <CreatorsContainer count={5}  />
+        <h2>Meet Our <span style={{ color: "var(--bg_buttons)" }} >Top Creators</span></h2>
+        <CreatorsContainer count={4} />
       </div>
+      {/* Roadmaps Preview Section */}
+      <div className="learning-paths-showcase">
+        <h2 className="paths-heading">Explore Our <span style={{ color: "var(--bg_buttons)" }}>Learning Paths</span></h2>
+        <div className="paths-grid">
+          <div className="path-card glowing-border">
+            <div className="path-content">
+              <h3 className="path-title">Frontend Development</h3>
+            </div>
+          </div>
+          <div className="path-card glowing-border">
+            <div className="path-content">
+              <h3 className="path-title">Backend Development</h3>
+            </div>
+          </div>
+          <div className="path-card glowing-border">
+            <div className="path-content">
+              <h3 className="path-title">Full Stack Development</h3>
+            </div>
+          </div>
+          <div className="path-card glowing-border">
+            <div className="path-content">
+              <Link to="/roadmap" className="path-cta pulse-button">View All Paths</Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* After learning-paths-showcase section, add: */}
+      <Testimonials />
+      <ChooseUs />
+      <NewsLetter />
+      <CallToAction />
+      {/* <FAQ /> */}
     </div>
   );
 }

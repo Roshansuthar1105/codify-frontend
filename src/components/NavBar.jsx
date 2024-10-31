@@ -28,8 +28,7 @@ function NavBar() {
   return (
     <nav>
       <h3 className="logo">
-        {" "}
-        <NavLink to="/">Codify</NavLink>
+        <NavLink to="/"> <img src="favicon.png" height={"auto"} width={40} alt="Logo Codify" /> Codify</NavLink>
       </h3>
       <div className="nav-btns" >
       <ThemeSwitcher/>
@@ -60,6 +59,11 @@ function NavBar() {
         <li>
           <NavLink className="link" to="/courses">
             Courses
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className="link" to="/roadmap">
+            Roadmaps
           </NavLink>
         </li>
         <li>
