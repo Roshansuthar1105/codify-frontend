@@ -16,14 +16,27 @@ const ThemeSwitcher = () => {
   };
 
   return (
-    <button className="theme-toggle-btn" onClick={toggleTheme}>
-      {/* Toggle between the sun and moon icons */}
-      {isLightTheme ? (
-        <FaSun className="theme-icon" /> // Sun icon for light theme
-      ) : (
-        <FaMoon className="theme-icon" /> // Moon icon for dark theme
-      )}
-    </button>
+    // <button className="theme-toggle-btn" onClick={toggleTheme}>
+    //   {/* Toggle between the sun and moon icons */}
+    //   {isLightTheme ? (
+    //     <FaSun className="theme-icon" /> // Sun icon for light theme
+    //   ) : (
+    //     <FaMoon className="theme-icon" /> // Moon icon for dark theme
+    //   )}
+    // </button>
+  <div className="theme-switcher">
+    <label className="switch">
+      <input 
+        type="checkbox"
+        checked={isLightTheme}
+        onChange={toggleTheme}
+      />
+      <span className="slider">
+        <FaSun className="theme-icon sun-icon" />
+        <FaMoon className="theme-icon moon-icon" />
+      </span>
+    </label>
+  </div>
   );
 };
 

@@ -4,8 +4,11 @@ import CourseForm from "./CourseForm";
 import { useParams } from "react-router";
 import { toast } from "react-toastify";
 import CardBody from "../../components/CardBody";
-
+import { useLoading } from "../../components/loadingContext";
+import "../../components/css/CourseUpdate.css";
 const CourseUpdate = () => {
+    const { setIsLoading } = useLoading();
+    const [preview, setPreview] = useState(false);
     const [newCourse, setNewCourse] = useState({
         course_title:"",
         course_category:"",
@@ -17,11 +20,18 @@ const CourseUpdate = () => {
     const {id} = useParams();
     const {API, authorizationToken} = useAuth();
     const getOneCourse = async () => {
-        const response = await fetch(`${API}/admin/courses/getcourse/${id}`, {
-            headers: { Authorization: authorizationToken },
-        });
-        const data = await response.json();
-        setNewCourse(data);
+        try {
+            setIsLoading(true);
+            const response = await fetch(`${API}/admin/courses/getcourse/${id}`, {
+                headers: { Authorization: authorizationToken },
+            });
+            const data = await response.json();
+            setNewCourse(data);
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setIsLoading(false);
+        }
     }
     const handleChange = (e) => {
         setNewCourse({...newCourse, [e.target.name]:e.target.value});
@@ -31,7 +41,9 @@ const CourseUpdate = () => {
         updateCourse(newCourse);
     }
     const updateCourse = async (newCourse) => {
-        const response = await fetch(`${API}/admin/courses/update/${id}`, {
+        try {
+            setIsLoading(true);
+            const response = await fetch(`${API}/admin/courses/update/${id}`, {
             method: "PATCH",
             headers: { 
                 Authorization: authorizationToken,
@@ -46,6 +58,11 @@ const CourseUpdate = () => {
             toast.success(data.message);
         }else{
             toast.error(data.message);
+            }
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setIsLoading(false);
         }
     }
     useEffect(()=>{
@@ -53,9 +70,18 @@ const CourseUpdate = () => {
     },[])
     return (
         <>
-        <div>CourseUpdate</div>
+            <h2 className="page-heading">Update <span style={{color: "var(--bg_buttons)"}}>Course</span></h2>
+            <button className="preview-btn" onClick={()=>{
+                setPreview(!preview);
+            }} >Preview</button>
             <CourseForm handleSubmit={handleSubmit} handleChange={handleChange} newCourse={newCourse}/>
-            <CardBody course={newCourse}/>
+            {preview && 
+            <div className="preview-container">
+                <button className="close-preview-btn" onClick={()=>{
+                    setPreview(false);
+                }} >Close</button>
+                <CardBody course={newCourse}/>
+            </div>}
         </>
     )
 }

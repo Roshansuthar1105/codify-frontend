@@ -3,57 +3,69 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../store/auth';
 import SearchBar from '../components/SearchBar';
 import CardBody from '../components/CardBody';
-import Loader from '../components/Loader';
 import '../components/css/Courses.css';
-import { Navigate } from 'react-router-dom'; // Ensure you import Navigate
-
+import { useLoading } from '../components/loadingContext';
 const Courses = () => {
-  const { coursesData ,API} = useAuth();
+  const { fetchCoursesData, coursesData, API } = useAuth();
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [categories, setCategories] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [loading, setLoading] = useState(true);
   const [watchlist, setWatchlist] = useState([]);
   const token = localStorage.getItem('token');
+  const { setIsLoading } = useLoading();
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetchCoursesData();
+    setIsLoading(false);
+  }, []);
   useEffect(() => {
     // Extract unique categories from coursesData
+    setIsLoading(true);
     const uniqueCategories = [...new Set(coursesData.map(course => course.course_category))];
     setCategories(uniqueCategories);
-    setLoading(false);
+    setIsLoading(false);
   }, [coursesData]);
-// Fetch user's watchlist
-const fetchWatchlist = async () => {
-  const response = await fetch(`${API}/user/watchlist`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}` // Add the Authorization header
-    },
-  });
+  // Fetch user's watchlist
+  const fetchWatchlist = async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetch(`${API}/user/watchlist`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}` // Add the Authorization header
+        },
+      });
 
-  if (response.ok) {
-    const data = await response.json();
-    setWatchlist(data.watchlist || []); // Set to an empty array if watchlist is undefined
-    console.log("Watchlist data is ", data.watchlist || []);
-  } else {
-    console.error('Failed to fetch watchlist:', response.status, response.statusText);
-  }
-};
+      if (response.ok) {
+        const data = await response.json();
+        setWatchlist(data.watchlist || []); // Set to an empty array if watchlist is undefined
+        console.log("Watchlist data is ", data.watchlist || []);
+      } else {
+        console.error('Failed to fetch watchlist:', response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error('Error fetching watchlist:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-useEffect(() => {
-  fetchWatchlist(); // Fetch the watchlist when component mounts
-}, [API, token]);
+  useEffect(() => {
+    fetchWatchlist(); // Fetch the watchlist when component mounts
+  }, [API, token]);
 
-// Handle watchlist update in CardBody
-const updateWatchlist = () => {
-  fetchWatchlist(); // Re-fetch watchlist to get the latest data
-};
+  // Handle watchlist update in CardBody
+  const updateWatchlist = () => {
+    fetchWatchlist(); // Re-fetch watchlist to get the latest data
+  };
   // Filter courses based on selected category and search term
   const filteredCourses = coursesData
-    .filter(course => 
+    .filter(course =>
       (selectedCategory ? course.course_category === selectedCategory : true) &&
       (course.course_title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-       course.description.toLowerCase().includes(searchTerm.toLowerCase()))
+        course.description.toLowerCase().includes(searchTerm.toLowerCase()))
     );
 
   const handleCategorySelect = (category) => {
@@ -63,10 +75,6 @@ const updateWatchlist = () => {
       setSelectedCategory(category);
     }
   };
-
-  if (loading) {
-    return <Loader />; // Show loader while loading
-  }
 
   return (
     <div className="courses-page container">

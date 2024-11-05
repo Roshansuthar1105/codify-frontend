@@ -1,0 +1,57 @@
+.preview-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg_dark);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preview-btn {
+  display: block;
+  margin: 1rem auto;
+  padding: 0.5rem 1rem;
+  background-color: var(--bg_buttons);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.preview-btn:hover {
+  background-color: var(--bg_buttons_hover);
+}
+
+.close-preview-btn {
+  position: absolute;
+  top: 110px;
+  right: 10px;
+  padding: 0.5rem 1rem;
+  background-color: var(--bg_buttons);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1001;
+  border: 1px solid var(--bg_buttons);
+}
+
+.close-preview-btn:hover {
+  background-color: var(--bg_buttons_hover);
+}
+
+.page-heading {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 2rem;
+  font-weight: bold;
+}

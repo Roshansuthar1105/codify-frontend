@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
+import { useLoading } from "../components/loadingContext";
 function AdminContacts() {
   const { authorizationToken ,API } = useAuth();
   const [contact, setContact] = useState([]);
+  const { setIsLoading } = useLoading();
   const fetchContacts = async () => {
-    const response = await fetch(`${API}/admin/contacts`, {
-      method: "GET",
+    try {
+      setIsLoading(true);
+      const response = await fetch(`${API}/admin/contacts`, {
+        method: "GET",
       headers: {
         Authorization: authorizationToken,
       },
@@ -15,9 +19,15 @@ function AdminContacts() {
     if (response.ok) {
       setContact(data);
     } 
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
   const deletecontact = async(id)=>{
     try {
+      setIsLoading(true);
       const response = await fetch(`${API}/admin/contacts/delete/${id}`,{
         method:"DELETE",
         headers:{
@@ -30,10 +40,11 @@ function AdminContacts() {
         fetchContacts();
       }else{
         toast.error("Contact not deleted !");
-        
       }
     } catch (error) {
       console.log(error)
+    } finally {
+      setIsLoading(false);
     }
   }
   useEffect(() => {

@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import SearchBar from "../../components/SearchBar";
 import CardBody from "../../components/CardBody";
 import "../../components/css/Admin.css";
+import { useLoading } from "../../components/loadingContext";
 function AdminCourses() {
   const { authorizationToken, API, coursesData } = useAuth();
   const [searchTerm, setSearchTerm] = useState("");
-
+  const { setIsLoading } = useLoading();
   const filteredCourses = coursesData
     .filter(course =>
     (course.course_title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -17,7 +18,9 @@ function AdminCourses() {
       course.creator_name.toLowerCase().includes(searchTerm.toLowerCase()))
     );
   const handleDelete = async (id) => {
-    const response = await fetch(`${API}/admin/courses/delete/${id}`, {
+    try {
+      setIsLoading(true);
+      const response = await fetch(`${API}/admin/courses/delete/${id}`, {
       method: "DELETE",
       headers: { Authorization: authorizationToken },
     });
@@ -26,7 +29,12 @@ function AdminCourses() {
       toast.success(data.message);
       window.location.reload();
     } else {
-      toast.error(data.message);
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   }
   return (

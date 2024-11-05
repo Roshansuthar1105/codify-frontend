@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
+import { useLoading } from "../components/loadingContext";
 function AdminUpdate() {
+  const { setIsLoading } = useLoading();
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -20,6 +22,7 @@ function AdminUpdate() {
   };
   const fetchUserdata = async () => {
     try {
+      setIsLoading(true);
       const response = await fetch(`${API}/admin/users/${params.id}`, {
         method: "GET",
         headers: {
@@ -36,6 +39,8 @@ function AdminUpdate() {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
   useEffect(() => {
@@ -43,8 +48,8 @@ function AdminUpdate() {
   }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
+      setIsLoading(true);
       const response = await fetch(`${API}/admin/users/update/${params.id}`, {
         method: "PATCH",
         headers: {
@@ -61,6 +66,8 @@ function AdminUpdate() {
       const data = await response.json();
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
   return (

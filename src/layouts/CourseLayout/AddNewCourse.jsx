@@ -4,8 +4,10 @@ import "../../components/css/AddNewCourse.css";
 import { useEffect, useState } from "react";
 import {toast} from "react-toastify";
 import CourseForm from "./CourseForm";
+import { useLoading } from "../../components/loadingContext";
 const AddNewCourse = () => {
     const {API , coursesData , authorizationToken} = useAuth();
+    const { setIsLoading } = useLoading();
     const [newCourse, setNewCourse] = useState({
         course_category: "",
         creator_name: "",
@@ -21,6 +23,7 @@ const AddNewCourse = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            setIsLoading(true);
             const response = await fetch(`${API}/admin/courses/add`, {
                 method: 'POST',
                 headers: {
@@ -56,11 +59,13 @@ const AddNewCourse = () => {
         } catch (error) {
             console.error('Error adding course:', error);
             toast.error('Failed to add course. Please try again.');
+        } finally {
+            setIsLoading(false);
         }
     }
     return (
         <>
-            <h2 className="page-heading">Add New Course</h2>
+            <h2 className="page-heading">Add New <span style={{color: "var(--bg_buttons)"}}>Course</span></h2>
             <CourseForm handleSubmit={handleSubmit} handleChange={handleChange} newCourse={newCourse}/>
         </>
     )

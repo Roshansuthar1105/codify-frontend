@@ -7,7 +7,6 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [userdata, setUserdata] = useState([]);
   const [coursesData, setCoursesData] = useState([]);
-  const [loading, setLoading] = useState(true);
   const API = import.meta.env.VITE_SERVER_API;
   let isLoggedIn = !!token;
   let authorizationToken = `Bearer ${token}`;
@@ -28,7 +27,6 @@ export const AuthProvider = ({ children }) => {
   }, []);
   const userAuthentication = async () => {
     try {
-      setLoading(true);
       const response = await fetch(`${API}/user`, {
         method: "GET",
         headers: { Authorization: authorizationToken },
@@ -36,11 +34,9 @@ export const AuthProvider = ({ children }) => {
       if (response.ok) {
         const data = await response.json();
         setUserdata(data.user);
-        setLoading(false);
       } else {
         const err = await response.json();
         console.log(err.message);
-        setLoading(false);
       }
     } catch (error) {
       console.log("error from userAuth ", error);
@@ -64,11 +60,11 @@ export const AuthProvider = ({ children }) => {
       value={{
         storeTokenInLS,
         LogoutUser,
-        loading,
         isLoggedIn,
         userdata,
         coursesData,
         authorizationToken,
+        fetchCoursesData,
         API
       }}
     >

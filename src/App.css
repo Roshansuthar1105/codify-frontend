@@ -46,18 +46,6 @@
   --subtext:#333;
   --text_clr: #202323;
 }
-.loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100dvh;
-  width: 100dvw;
-  background-color: var(--bg_primary);
-}
 html {
   min-height: 100dvh;
 }

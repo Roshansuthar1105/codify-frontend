@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 import { AiOutlineEye , AiOutlineEyeInvisible} from "react-icons/ai";
+import { useLoading } from "../components/loadingContext";
 function Signup() {
   const [user, setUser] = useState({
     username: "",
@@ -14,8 +15,8 @@ function Signup() {
   });
   const [show , setShow]=useState(false);
   const [errMessage, setErrMessage] = useState("");
-  const navigate = useNavigate();
   const { storeTokenInLS, API } = useAuth();
+  const { setIsLoading } = useLoading();
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -27,6 +28,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setIsLoading(true);
       const response = await fetch(`${API}/api/v1/auth/register`, {
         headers: {
           "Content-Type": "application/json",
@@ -49,6 +51,8 @@ function Signup() {
       }
     } catch (error) {
       console.log("response error : ", error);
+    } finally {
+      setIsLoading(false);
     }
   };
   return (

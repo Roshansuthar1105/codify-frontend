@@ -4,7 +4,9 @@ import { useAuth } from '../store/auth';
 import { toast } from 'react-toastify';
 import { MdBookmarkBorder, MdBookmarkAdded, MdEdit } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import { useLoading } from './loadingContext';
 const CardBody = ({ course, watchlist = [], updateWatchlist }) => {
+  const { setIsLoading } = useLoading();
   const { course_title, creator_youtube_link, creator_name, creator_image, course_image } = course;
   const { API, userdata } = useAuth();
   const token = localStorage.getItem('token'); // Assuming you store your token in localStorage
@@ -14,10 +16,12 @@ const CardBody = ({ course, watchlist = [], updateWatchlist }) => {
   const handleWatchlist = async () => {
     if (!userdata._id) {
       toast.info("Not Logged in !");
+      setIsLoading(false);
       return; // Prevent further execution if not logged in
     }
-
+    
     try {
+      setIsLoading(true);
       const response = await fetch(`${API}/user/addToWatchlist`, {
         method: 'POST',
         headers: {
@@ -38,7 +42,10 @@ const CardBody = ({ course, watchlist = [], updateWatchlist }) => {
       updateWatchlist(); // Call the function to refresh the watchlist
     } catch (error) {
       console.error("Error:", error); // Handle the error accordingly
+    } finally {
+      setIsLoading(false);
     }
+
   };
 
   return (

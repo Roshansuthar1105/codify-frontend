@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 import "../components/css/Pages.css";
 import { AiOutlineEye , AiOutlineEyeInvisible} from "react-icons/ai";
+import { useLoading } from "../components/loadingContext";
 function Login() {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+  const { setIsLoading } = useLoading();
   const [show , setShow]=useState(false);
-  const navigate = useNavigate();
   const { storeTokenInLS, API,userdata,isLoggedIn } = useAuth();
   const handleChange = (e) => {
     const name = e.target.name;
@@ -24,6 +24,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setIsLoading(true);
       const response = await fetch(`${API}/api/v1/auth/login`, {
         headers: {
           "Content-Type": "application/json",
@@ -39,7 +40,6 @@ function Login() {
         storeTokenInLS(res_data.token);
         toast.success("logged in SuccesFully");
         window.location.href = "/";
-        // navigate("/");
       } else {
         const err_data = await response.json();
         toast.warn(
@@ -48,6 +48,8 @@ function Login() {
         }
       } catch (error) {
         console.log("response error : ", error);
+      } finally {
+        setIsLoading(false);
       }
     };
   return (
@@ -94,7 +96,7 @@ function Login() {
             }
           </div>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" >Submit</button>
       </form>
       </div>
 

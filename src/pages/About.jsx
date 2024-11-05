@@ -2,12 +2,11 @@ import React from "react";
 import "../components/css/Pages.css";
 import { useAuth } from "../store/auth";
 function About() {
-  const { isLoggedIn } = useAuth();
   const { userdata } = useAuth();
   return (
     <div className="container aboutus-page">
       <div className="gradient-background"></div>
-        <h2 className="page-heading" >Welcome {isLoggedIn ? userdata.username :"to Codify"}</h2>
+        <h2 className="page-heading" >Welcome {userdata.username ? userdata.username.toUpperCase() :"to Codify"}</h2>
       <div className="left">
         <img src="aboutus.png" alt="" />
       </div>
@@ -25,6 +24,43 @@ function About() {
         meets innovation at Codify.
       </p>
         </div>
+      <div className="about-section-center">
+        <div className="mission">
+          <h3>Our Mission</h3>
+          <p>
+            At Codify, our mission is to make quality programming education accessible to everyone. 
+            We believe in empowering individuals with the skills and knowledge needed to thrive in 
+            the digital age through interactive learning experiences and comprehensive resources.
+          </p>
+        </div>
+
+        <div className="features">
+          <h3>What We Offer</h3>
+          <ul>
+            <li>Comprehensive programming courses from beginner to advanced levels</li>
+            <li>Interactive coding exercises and real-world projects</li>
+            <li>Expert-led tutorials and detailed documentation</li>
+            <li>Supportive community of learners and mentors</li>
+            <li>Regular updates with latest programming trends and technologies</li>
+          </ul>
+        </div>
+
+        <div className="tech-stack">
+          <h3>Technologies We Cover</h3>
+          <div className="tech-list">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>React</span>
+            <span>Python</span>
+            <span>Java</span>
+            <span>C++</span>
+            <span>Django</span>
+            <span>Node.js</span>
+            <span>Mobile Development</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

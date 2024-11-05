@@ -21,9 +21,11 @@ import AdminCourses from "./layouts/CourseLayout/AdminCourses";
 import AdminUpdate from "./layouts/AdminUpdate";
 import AddNewCourse from "./layouts/CourseLayout/AddNewCourse.jsx";
 import Footer from "./components/Footer.jsx";
+import { LoadingProvider } from "./components/loadingContext.jsx";
 function App() {
   return (
     <Router>
+      <LoadingProvider>
       <header>
         <NavBar />
       </header>
@@ -50,6 +52,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      </LoadingProvider>
     </Router>
   );
 }

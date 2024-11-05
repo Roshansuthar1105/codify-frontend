@@ -76,7 +76,7 @@ function Home() {
             <p>Expert Creators</p>
           </div>
           <div className="stat-item">
-            <h3>1000+</h3>
+            <h3>100+</h3>
             <p>Active Users</p>
           </div>
         </div>
