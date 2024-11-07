@@ -32,7 +32,7 @@
   cursor: default;
 }
 
-.roadmap-item h3 {
+.roadmap-item p {
   color: var(--text_clr);
   margin: 0;
   font-family: "Playwrite IS", cursive;
@@ -54,3 +54,62 @@
   opacity: 0.9;
   transform: scale(1.05);
 }
+/*
+.roadmap-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+.page-heading{
+  text-align: center;
+  margin: 50px 0;
+}
+.roadmap-item {
+flex-grow: 1;
+flex-shrink: 1;
+background-color: var(--bg_buttons_blur);
+border: 2px solid var(--bg_buttons);
+width: auto;
+border-radius: 10px;
+padding:10px 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+transition: transform 0.2s ease;
+overflow: hidden;
+position: relative;
+gap: 5px;
+}
+
+.roadmap-item:hover {
+transform: translateY(-5px);
+background-color: var(--bg_buttons);
+cursor: default;
+}
+.roadmap-item p {
+color: var(--text_clr);
+margin: 0;
+font-family: "Playwrite IS", cursive;
+}
+
+.roadmap-item a {
+box-sizing: border-box;
+color: var(--text_clr);
+padding: 6px 15px;
+border-radius: 5px;
+text-decoration: none;
+font-weight: 600;
+transition: all 0.2s ease;
+border: 2px solid var(--bg_buttons);
+border-radius: 50px;
+}
+.roadmap-item a:hover{
+background-color: transparent;
+color: #fff;
+border: 2px solid #fff;
+}*/
