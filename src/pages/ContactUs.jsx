@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useAuth } from "../store/auth";
 import "../components/css/Pages.css";
 import { toast } from "react-toastify";
+import { useLoading } from "../components/loadingContext";
 function ContactUs() {
   const [user, setUser] = useState({
     email: "",
@@ -12,6 +13,7 @@ function ContactUs() {
   const {userdata , API}=useAuth();
   const {isLoggedIn}=useAuth();
   const [isUser , setisUser]=useState(true);
+  const {setIsLoading} = useLoading();
   if(isUser && userdata){
     setUser({
       email:userdata.email,
@@ -31,6 +33,7 @@ function ContactUs() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setIsLoading(true);
       const response = await fetch(
         `${API}/contact`,
         {
@@ -53,6 +56,8 @@ function ContactUs() {
       }
     } catch (error) {
       console.log("message not sent: ", error);
+    }finally{
+      setIsLoading(false);
     }
   };
   return (
