@@ -64,8 +64,10 @@ const Courses = () => {
   const filteredCourses = coursesData
     .filter(course =>
       (selectedCategory ? course.course_category === selectedCategory : true) &&
-      (course.course_title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        course.description.toLowerCase().includes(searchTerm.toLowerCase()))
+      (course.course_title.toLowerCase().includes(searchTerm.toLowerCase())
+       || course.description.toLowerCase().includes(searchTerm.toLowerCase())
+       || course.creator_name.toLowerCase().includes(searchTerm.toLowerCase())
+      )
     );
 
   const handleCategorySelect = (category) => {
